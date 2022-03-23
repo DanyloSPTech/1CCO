@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    background-color: black;
+    font-family: monospace;
+}
+
+.header{
+    border-bottom: 3px solid aqua;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .container{
+    width: 80%;
+    margin: auto;
+    border: 3px solid orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .container .destaque{
+    font-weight: 500;
+}
+
+.titulo{
+    color: aqua;
+    border: 3px solid purple;
+    width: fit-content;
+}
+
+.navBar{
+    color: coral;
+    list-style: none;
+    border: 3px solid red;
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+    padding: 0;
+    justify-items: center;
+}
