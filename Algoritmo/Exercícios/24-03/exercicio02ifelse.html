@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02 - If Else</title>
+</head>
+<body>
+    <h1>Exercício 02 - Débito Banco Itado</h1>
+    <p>Infome o Saldo da Conta:</p>
+    <input id="inpSaldo">
+    <p>Informe o Valor de Débito:</p>
+    <input id="inpDebito">
+    <button onclick="analisarConta()">Analisar Conta</button>
+    <p id="txtMensagem"></p>
+</body>
+</html>
+
+<script>
+
+    function analisarConta(){
+        var saldoConta = Number(inpSaldo.value);
+        var valorDebito = Number(inpDebito.value);
+
+        var saldoFinal = saldoConta - valorDebito;
+
+        if(saldoFinal >= 0){
+            txtMensagem.innerHTML = `<i style="color: blue;">O saldo atual da conta corrente é: R$ ${saldoFinal.toFixed(2)}</i>`;
+        } else {
+            txtMensagem.innerHTML = `<b style="color: red;">O saldo atual da conta corrente é: R$ ${saldoFinal.toFixed(2)}</b>`;
+        }
+    }
+
+</script>

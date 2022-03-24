@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 24-03</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aula 24-03</title>
+    </head>
+    <body>
+        <!-- Cálculo valor da Multa -->
+        <h1>Valor da Multa</h1>
+        <p>Informe a quantidade de pontos na sua carteira</p>
+        <input id="inpQtdePontos">
+        <button onclick="calcularMulta()">Calcular Multa</button>
+        <div id="mensagem" style="display: none;">
+            <p id="txtMulta"></p>
+        </div>        
+    </body>
 </html>
+
+<script>
+
+    function calcularMulta(){
+        var qtdePontos = Number(inpQtdePontos.value);
+        var valorMulta = 0;
+        if(qtdePontos >= 20){
+            valorMulta = qtdePontos * 87.00;
+            txtMulta.innerHTML = `Sua CNH está suspensa, `;
+        }
+        else{
+            valorMulta = qtdePontos * 78.00;
+        }
+        txtMulta.innerHTML += `O valor total das multas é de R$ ${valorMulta.toFixed(2)}`; 
+        mensagem.style.display = 'block';
+    }
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 08 - If Else</title>
+</head>
+<body>
+    <h1>Exercício Peso Elevador</h1>
+    <p>Informe a quantidade de homens no elevador:</p>
+    <input id="inpQtdeHomens">
+    <p>Informe a quantidade de mulheres no elevador:</p>
+    <input id="inpQtdeMulheres">
+    <button onclick="testePeso()">Ligar Elevador</button>
+    <p id="txtMensagem"></p>
+</body>
+</html>
+
+<script>
+
+    function testePeso(){
+        var qtdeHomens = Number(inpQtdeHomens.value);
+        var qtdeMulheres = Number(inpQtdeMulheres.value);
+
+        var pesoTotalElevador = (qtdeHomens * 90) + (qtdeMulheres * 70);
+
+        if(pesoTotalElevador < 500){
+            txtMensagem.innerHTML = `<span style="color: green">Elevador vai se mover, pois está com ${pesoTotalElevador} KG</span>`;
+        }else {
+            var diferencaPeso = pesoTotalElevador - 499;
+            txtMensagem.innerHTML = `<span style="color: red">Alguém precisa descer. Precisa perder ${diferencaPeso} KG para mover o elevador</span`;
+        }
+    }
+
+</script>
