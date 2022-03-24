@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02 - Decisão</title>
+</head>
+<body>
+    <h1>Exercício Latas de Refri | Ano</h1>
+    <p>Informe a quantidade de latinhas de refrigerante que você consume por dia:</p>
+    <input id="inpQtdeLatinhas">
+    <button onclick="calcularRefri()">Quantos Refris?</button>
+    <div id="mensagem">
+        <p id="txtCalculo"></p>
+    </div>
+</body>
+</html>
+
+<script>
+
+    function calcularRefri(){
+        var qtdeLatinhaAno = Number(inpQtdeLatinhas.value) * 365;
+        txtCalculo.innerHTML = `Você consome ${qtdeLatinhaAno} latinhas de refri no ano.`;
+        if(qtdeLatinhaAno >= 500){
+            txtCalculo.innerHTML += ` Cuidado com a diabetes!`;
+        }
+        mensagem.style.display = 'block';
+    }
+
+</script>

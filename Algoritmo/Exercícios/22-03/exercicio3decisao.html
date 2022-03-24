@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03 - Decisão</title>
+</head>
+<body>
+    <h1>Exercício Nota Fora de Série</h1>
+    <p>Informe o valor da 1º nota:</p>
+    <input id="inpNota1">
+    <p>Informe o valor da 2º nota:</p>
+    <input id="inpNota2">
+    <p>Informe o valor da 3º nota:</p>
+    <input id="inpNota3">
+    <button onclick="analisarDesempenho()">Analisar Desempenho</button>
+    <br>
+    <div id="mensagem" style="display: none;">
+        <p id="txtNota"></p>
+    </div>
+</body>
+</html>
+
+<script>
+
+    function analisarDesempenho(){
+
+        var nota1 = Number(inpNota1.value);
+        var nota2 = Number(inpNota2.value);
+        var nota3 = Number(inpNota3.value);
+
+        var media = (nota1 + nota2 + nota3) / 3;
+
+        txtNota.innerHTML = `Sua Média foi de ${media.toFixed(2)}`;
+
+        if(media > 9.4){
+            txtNota.innerHTML += ", Parabéns, você é fora de série!";
+        }
+
+        mensagem.style.display = 'block';
+    }
+
+</script>

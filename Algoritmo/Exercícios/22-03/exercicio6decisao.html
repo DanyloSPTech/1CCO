@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 06 - Decisão</title>
+</head>
+<body>
+    <h1>Financiamento Casa Própria</h1>
+    <p>Informe o valor da renda familiar:</p>
+    <input id="inpRendaFamiliar">
+    <p>Informe o valor da prestação</p>
+    <input id="inpValorPrestacao">
+    <button onclick="verificarFinanciamento()">Verificar Financiamento</button>
+    <br>
+    <div id="mensagem">
+        <p id="txtResultado"></p>
+    </div>
+</body>
+</html>
+
+<script>
+
+    function verificarFinanciamento(){
+        var rendaFamiliar = Number(inpRendaFamiliar.value);
+        var valorPrestacao = Number(inpValorPrestacao.value);
+
+        var taxaPrestacao = (valorPrestacao * 100) / rendaFamiliar;
+
+        txtResultado.innerHTML = `A prestação corresponde a ${taxaPrestacao.toFixed(2)}% da renda familiar`;
+
+        if(taxaPrestacao > 30){
+            txtResultado.innerHTML += `, Será necessário complementar a renda familiar`;
+        }
+    }
+
+</script>

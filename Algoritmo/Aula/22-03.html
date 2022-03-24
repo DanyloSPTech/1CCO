@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aula 22-03 - Condições If Else</title>
+    </head>
+    <body>
+        <h3>CNH Suspensa</h3>
+        <p>Insira quantos pontos você tem na carteira:</p>
+        <input id="inpQtdePontos">
+        <button onclick="conferirCarteira()">Confirmar</button>
+    </body>
+</html>
+
+<script>
+
+    function conferirCarteira(){
+        if(Number(inpQtdePontos.value) > 20){
+            alert("CNH Suspensa!");
+        } else if(Number(inpQtdePontos.value) > 10){
+            alert("CNH Quase Suspensa!");
+        } else {
+            alert("Tá de boas!");
+        }
+    }
+
+</script>

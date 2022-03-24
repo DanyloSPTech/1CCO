@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11 - Decisão</title>
+</head>
+<body>
+    <h1>Saldo Banco</h1>
+    <p>Qual seu saldo na conta do banco?</p>
+    <input id="inpSaldoBanco">
+    <button onclick="verificarFinancas()">Verificar Finanças</button>
+    <div id="mensagem">
+        <p id="txtSaldo"></p>
+    </div>
+</body>
+</html>
+
+<script>
+
+    function verificarFinancas(){
+        if(inpSaldoBanco.value == 0){
+            txtSaldo.innerHTML = "Conta Zerada";
+            txtSaldo.style.color = "black";
+        }
+        if(inpSaldoBanco.value < 0){
+            txtSaldo.innerHTML = "Está Devendo!";
+            txtSaldo.style.color = "red";
+        }
+        if(inpSaldoBanco.value > 0){
+            txtSaldo.innerHTML = "Saldo Positivo :)";
+            txtSaldo.style.color = "blue";
+        }
+    }
+
+</script>

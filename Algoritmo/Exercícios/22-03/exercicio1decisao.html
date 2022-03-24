@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01 - Tomada de Decisão</title>
+</head>
+<body>
+    <h1>Exercício Teste Festa</h1>
+    <p>Informe sua Idade:</p>
+    <input id="iptIdade">
+    <button onclick="testarIdade()">Ir pra festa</button>
+    <br>
+    <br>
+    <div id="bloco" style="display: none;">
+        <img src="https://media3.giphy.com/media/kHmVOy84g8G6my09fu/giphy.gif" style="height: 180px;">
+    </div>
+</body>
+</html>
+
+<script>
+
+    function testarIdade(){
+        if(Number(iptIdade.value) < 18){
+            alert("Pedir Permissão pro responsável");
+        }
+        alert("#partiuFesta");
+        bloco.style.display = 'block';
+    }
+
+</script>

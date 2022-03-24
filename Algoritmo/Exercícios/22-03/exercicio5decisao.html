@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 05 - Decisão</title>
+</head>
+<body>
+    <h1>Exercício Conta Luz</h1>
+    <p>Informe a quantidade de kWh consumida por dia</p>
+    <input id="inpKWHDia">
+    <button onclick="calcularConta()">Calcular Conta de Luz</button>
+</body>
+</html>
+
+<script>
+
+    /*
+        TESTE DE MESA:
+
+        KWh/dia | KWh/mes | R$
+        2       | 60      | 45.90
+        3.4     | 102     | 86.70
+        0       | 0       | 0
+        100     | 3000    | 2.550.00
+
+    */
+
+    function calcularConta(){
+        var consumoMes = Number(inpKWHDia.value) * 30;
+        var valorConta = consumoMes * 0.85;
+        if(consumoMes < 100){
+            var descontoConta = (valorConta * 10) / 100;
+            valorConta -= descontoConta;
+        }
+        alert(`Valor a ser pago: R$ ${valorConta.toFixed(2)}`);
+    }
+
+</script>
