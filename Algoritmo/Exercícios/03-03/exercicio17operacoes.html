@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 17 - Operações Aritméticas</title>
+</head>
+<body>
+    <p>Moedas depositadas por Huguinho</p>
+    <input id="moedasHuguinho">
+    <p>Moedas depositadas por Zezinho</p>
+    <input id="moedasZezinho">
+    <p>Moedas depositadas por Luizinho</p>
+    <input id="moedasLuizinho">
+    <br>
+    <br>
+    <button onclick="calcular()">Calcular</button>
+    <div id="mensagem" style="display: none;">
+        <p>O <b style="color: red">Huguinho</b> economizou <b id="valorHuguinho"></b> pois fez <b><u id="qtdeDepositosHuguinho"></u></b> depósitos</p>
+        <p>O <b style="color: blue">Zezinho</b> economizou <b id="valorZezinho"></b> pois fez <b><u id="qtdeDepositosZezinho"></u></b> depósitos</p>
+        <p>O <b style="color: green">Luizinho</b> economizou <b id="valorLuizinho"></b> pois fez <b><u id="qtdeDepositosLuizinho"></u></b> depósitos</p>
+    </div>
+</body>
+</html>
+
+<script>
+
+    // Função que calcula o valor economizado por cada filho
+    function calcular(){
+        var qtdeMoedas = Number(moedasHuguinho.value);
+        var valorEconomizado = qtdeMoedas * 0.50;
+        valorHuguinho.innerHTML = `R$${valorEconomizado}`;
+        qtdeDepositosHuguinho.innerHTML = `${qtdeMoedas}`;
+        var qtdeMoedas = Number(moedasZezinho.value);
+        var valorEconomizado = qtdeMoedas * 0.50;
+        valorZezinho.innerHTML = `R$${valorEconomizado}`;
+        qtdeDepositosZezinho.innerHTML = `${qtdeMoedas}`;
+        var qtdeMoedas = Number(moedasLuizinho.value);
+        var valorEconomizado = qtdeMoedas * 0.50;
+        valorLuizinho.innerHTML = `R$${valorEconomizado}`;
+        qtdeDepositosLuizinho.innerHTML = `${qtdeMoedas}`;
+        mensagem.style.display = 'block';
+    }
+
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 06 - Input</title>
+</head>
+<body>
+    <p>Informe sua nota:</p>
+    <input id="txtNota" type="text">
+    <br>
+    <br>
+    <button onclick="falaAvo()">Opinião da Avó</button>
+    <button onclick="falaMae()">Opinião da Mãe</button>
+    <div id="divMensagem" style="display: none;">
+        <h3 id="fala"></h3>
+        <img id="foto" src="" height="300px">
+    </div>
+</body>
+</html>
+
+<script>
+
+    function falaAvo(){
+        fala.innerHTML = `Muito bem, que neto inteligente, porque tirou ${txtNota.value}`;
+        foto.src = "https://www.ideiademarketing.com.br/wp-content/uploads/2014/06/vovo-marketing3.jpg";
+        divMensagem.style.display = "block";
+    }
+
+    function falaMae(){
+        fala.innerHTML = `Não fez mais que tua obrigação com essa nota ${txtNota.value}`;
+        foto.src = "http://3.bp.blogspot.com/-Rs5RupgwiIs/U4kaci6cGTI/AAAAAAAAKvk/IrZX3cvzMVU/s1600/M%C3%A3e+trabalhando_+Na+mira+da+mam%C3%A3e!.png";
+        divMensagem.style.display = "block";
+    }
+
+</script>

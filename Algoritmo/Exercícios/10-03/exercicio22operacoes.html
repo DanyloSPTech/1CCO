@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 22 - Operações Aritméticas</title>
+</head>
+<body>
+    <h1>Exercício 22</h1>
+    <p style="color: green;">Votos na <u>Praça é Nossa:</u> <b id="votoPraca">0</b></p>
+    <p style="color: green;">Votos no <u>Zorra Total:</u> <b id="votoZorra">0</b></p>
+    <p style="color: green;">Total de Votos: <b id="votoTotal">0</b></p>
+    <button onclick="votarPraca()">Votar na Praça é Nossa</button>
+    <button onclick="votarZorra()">Votar na Zorra Total</button>
+</body>
+</html>
+
+<script>
+
+    var votosTotal = 0;
+    var votosPraca = 0;
+    var votosZorra = 0;
+
+    function votarPraca(){
+        votosPraca = votosPraca + 1;
+        votosTotal = votosTotal + 1;
+        votoTotal.innerHTML = votosTotal;
+        votoPraca.innerHTML = votosPraca;
+    }
+
+    function votarZorra(){
+        votosZorra = votosZorra + 1;
+        votosTotal = votosTotal + 1;
+        votoTotal.innerHTML = votosTotal;
+        votoZorra.innerHTML = votosZorra;
+    }
+
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Execício 02 - Operações Aritméticas</title>
+</head>
+<body>
+    <p>Informe a sua idade:</p>
+    <input id="idade">
+    <br>
+    <br>
+    <button onclick="calcularAposentadoria()">Aposentadoria</button>
+    <div id="div" style="display: none;">
+        <p style="color: green;">Se for <u>homem</u> faltam <b id="anosHomem">X</b> anos p/ aposentar</p>
+        <p style="color: purple;">Se for <u>mulher</u> faltam <b id="anosMulher">Y</b> anos p/ aposentar</p>
+    </div>
+</body>
+</html>
+
+<script>
+
+    //Função que calcula o tempo restante para a aposentadoria e altera o display da div para exibir os valores
+    function calcularAposentadoria(){
+        anosHomem.innerHTML = 70 - Number(idade.value);
+        anosMulher.innerHTML = 60 - Number(idade.value);
+        div.style.display = 'block';
+    }
+
+</script>

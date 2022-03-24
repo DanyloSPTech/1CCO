@@ -1,0 +1,58 @@
+<!-- Nome: Danylo Dias Gomes | RA: 02221004 -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11 - Lista 05</title>
+</head>
+<body>
+    <h1>Exercício 11 - Lista 05</h1>
+    <select id="slcMoedas">
+        <option value="0.05">R$ 0,05</option>
+        <option value="0.10">R$ 0,10</option>
+        <option value="0.25">R$ 0,25</option>
+        <option value="0.50">R$ 0,50</option>
+        <option value="1.00">R$ 1,00</option>
+    </select>
+    <button onclick="depositarMoeda()">Depositar</button>
+    <button onclick="gastarGrana()">Gastar Grana</button>
+    <p>• O saldo do cofrinho é de: <span id="spnSaldoCofrinho">R$ 99,99</span></p>
+    <p>• A quantidade de operações foi: <span id="spnQtdeOperacoes">99</span></p>
+    <p>• Média dos depósitos: <span id="spnMediaDepositos">R$ 99,99</span></p>
+</body>
+</html>
+
+<script>
+
+    // Variaveis globais, eu inicei com valor definido que estavam no Word, não entendi se eram apenas exemplos ou era pra realmente começar com esses valores
+    var saldoCofrinho = 99.99;
+    var qtdeOperacoes = 99;
+    var mediaDepositos = 99.99;
+    var valorBrutoDepositos = 99.99;
+
+    // Função responsável por atualizar os valores toda vez que uma nova moeda é depositada
+    function depositarMoeda(){
+        var deposito = Number(slcMoedas.value);
+        saldoCofrinho += deposito;
+        valorBrutoDepositos += deposito;
+        qtdeOperacoes += 1;
+        mediaDepositos = valorBrutoDepositos / qtdeOperacoes;
+        spnSaldoCofrinho.innerHTML = `R$ ${saldoCofrinho.toFixed(2)}`;
+        spnQtdeOperacoes.innerHTML = `${qtdeOperacoes}`;
+        spnMediaDepositos.innerHTML = `R$ ${mediaDepositos.toFixed(2)}`;
+    }
+
+    // Função responsável por 'gastar a grana', ele zera todas as variaveis e exibe os novos valores
+    function gastarGrana(){
+        saldoCofrinho = 0;
+        qtdeOperacoes = 0;
+        mediaDepositos = 0;
+        valorBrutoDepositos = 0;
+        spnSaldoCofrinho.innerHTML = `R$ ${saldoCofrinho.toFixed(2)}`;
+        spnQtdeOperacoes.innerHTML = `${qtdeOperacoes}`;
+        spnMediaDepositos.innerHTML = `R$ ${mediaDepositos.toFixed(2)}`;
+    }
+
+</script>

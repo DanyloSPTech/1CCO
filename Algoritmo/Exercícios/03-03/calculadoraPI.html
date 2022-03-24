@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora PI</title>
+</head>
+<body>
+    <h1>Calculadora Financeira Projeto PI</h1>
+    <h4>Nome: Danylo Dias Gomes | RA: 02221004</h4>
+    <h3>Projeto <span style="color: green;">Coleta Inteligente</span></h3>
+    <img src="https://images.emojiterra.com/twitter/v13.1/512px/267b.png" style="height: 50px;">
+    <p>O projeto Coleta Inteligente visa a redução da produção de lixo no Brasil e aumentar a taxa de lixo sendo reciclado, atualme o Brasil é <b>4º País</b> que mais produz lixo no mundo. Com <b>30% desse lixo podendo ser reciclado, <u style="color: red;">apenas 3% acaba realmente sendo reaproveitado.</u> Com esse desperdicio, o Brasil deixa de ganhar <u style="color: red;">R$ 14 Bilhões por ano.</u></b></p>
+    <p>A nossa solução consiste da adoção de lixeiras com sensores de 'capacidade', para quando as lixeiras encherem elas <u>emitirem um sinal ao cliente</u>, sinalizando que precisam ser esvaziadas, além disso será possível observar <b><u>dados sobre essas lixeiras,</u></b> que poderão ser úteis para a redução da emissão de lixo por parte dos clientes.</p>
+    <button onclick="exibirCalculadoraProducaoLixo()">Calcular Produção de lixo diária</button>
+    <button onclick="exibirCalculadoraGastosLixeira()">Calcular gastos com instalação das lixeiras</button>
+    <div id="calculadoraProducaoLixo" style="display: none;">
+        <p>Informe quantas pessoas vivem no prédio ou passam pelo local por dia</p>
+        <input id="qtdePessoas">
+        <br>
+        <br>
+        <button onclick="calcularProducaoLixo()">Calcular Produção de lixo diária</button>
+        <div id="divResultadoLixo" style="display: none;">
+            <p id="resultadoLixo"></p>
+        </div>
+    </div>
+    <div id="calculadoraGastosLixeira" style="display: none;">
+        <p>Informe a quantidade de kits de lixeira desejada (Cada kit vem com 5 lixeiras com suporte)</p>
+        <input id="qtdeLixeirasDesejadas">
+        <br>
+        <br>
+        <button onclick="calcularGastosLixeira()">Calcular custos das lixeiras</button>
+        <div id="divResultadoGastos" style="display: none;">
+            <p id="resultadoGastos"></p>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+    //Função responsável por exibir a calculadora de produção de lixo diária e ocultar informações irrelevantes para esse cálculo
+    function exibirCalculadoraProducaoLixo(){
+        calculadoraGastosLixeira.style.display = 'none';
+        qtdeLixeirasDesejadas.value = '';
+        resultadoGastos.innerHTML = '';
+        calculadoraProducaoLixo.style.display = 'block';
+    }
+
+    //Função responsável por calcular até quanto a produção diária de um prédio/estabelecimento pode chegar
+    function calcularProducaoLixo(){
+        // Cada pessoa no Brasil produz aproximadamente 1kg de lixo por dia, então o lixo diario é igual a quantidade de pessoas no prédio * 1
+        var lixoDiario = Number(qtdePessoas.value);
+        var possivelReciclagem = (lixoDiario * 30) / 100;
+        resultadoLixo.innerHTML = `O prédio/comércio produz até <b> ${lixoDiario} </b> KG de lixo por dia, sendo que <b> <u> ${possivelReciclagem} </u> </b> KG poderia ser reaproveitado`;
+        divResultadoLixo.style.display = 'block';
+    }
+
+    //Função responsável por exibir a calculadora de gastos com possível implementação do projeto e ocultar informações irrelevantes pare esse cálculo
+    function exibirCalculadoraGastosLixeira(){
+        calculadoraProducaoLixo.style.display = 'none';
+        qtdePessoas.value = '';
+        resultadoLixo.innerHTML = '';
+        calculadoraGastosLixeira.style.display = 'block';
+    }
+
+    //Função responsável por calcular os gastos com possível implementação do projeto
+    function calcularGastosLixeira(){
+        var qtdeLixeiras = Number(qtdeLixeirasDesejadas.value);
+        // 1394 = Valor do kit Lixeira | 10 reais para cada sensor arduino | 80 para a placa arduino
+        var gastosLixeira = qtdeLixeiras * (1394 + 10 * 4 + 80);
+        resultadoGastos.innerHTML = `Os gastos para compra dos kits de lixeira ficarão em torno de: R$ ${gastosLixeira}`;
+        divResultadoGastos.style.display = 'block';
+    }
+
+</script>

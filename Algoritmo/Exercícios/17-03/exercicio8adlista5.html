@@ -1,0 +1,38 @@
+<!-- Nome: Danylo Dias Gomes | RA: 02221004 -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 08 AD - Lista 05</title>
+</head>
+<body>
+    <h1>Exercício 08 AD - Lista 05 - Selects</h1>
+    <h3>Qual hobby você quer praticar?</h3>
+    <select id="slcHobby" onchange="alterarHobby()">
+        <option value="https://cdn.shopify.com/s/files/1/1061/1924/files/Dancer_With_Red_Dress_Emoji_400x400.png">Dançar</option>
+        <option value="https://cdn.shopify.com/s/files/1/1061/1924/files/Virus_Emoji_400x400.png">Jogar Vídeo-Game</option>
+        <option value="https://cdn.shopify.com/s/files/1/1061/1924/files/Man_Bowing_Emoji_400x400.png">Assistir Seriados</option>
+        <option value="https://cdn.shopify.com/s/files/1/1061/1924/files/Sign_of_the_Horns_Emoji_400x400.png">Ouvir Rock</option>
+    </select>
+    <br>
+    <br>
+    <img id="imgHobby" src="">
+</body>
+</html>
+
+<script>
+
+    // Variavel global responsavel por atualizar o tamanho da imagem, começa como 40 para garantir que a 1ª execução terá tamanho 50
+    var tamanhoImagem = 40;
+
+    // Função responsável por aumentar e alterar a imagem do hobby
+    function alterarHobby(){
+        tamanhoImagem += 10;
+        imgHobby.style.width = `${tamanhoImagem}px`;
+        var localImagem = slcHobby.value;
+        imgHobby.src = localImagem;
+    }
+
+</script>

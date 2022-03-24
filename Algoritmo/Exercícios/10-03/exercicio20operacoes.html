@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 20 - Operações Aritméticas</title>
+</head>
+<body>
+    <h1>Exercício 20</h1>
+    <p>Qual o seu salário?</p>
+    <input id="salarioUsuario">
+    <br>
+    <br>
+    <button onclick="confirmarSalario()">Confirmar Salário</button>
+    <br>
+    <div id="mensagem" style="display: none;">
+        <p id="dinheiroUsuario"></p>
+    </div>
+    <br>
+    <button onclick="pagar100()">Pagar conta de 100</button>
+    <button onclick="pagar500()">Pagar conta de 500</button>
+    <button onclick="ganhar2000()">Ganhar 2000 na loteria</button>
+</body>
+</html>
+
+<script>
+
+    var dinheiro = 0;
+
+    function confirmarSalario(){
+        dinheiro = Number(salarioUsuario.value);
+        dinheiroUsuario.innerHTML = `Grana atual: R$${dinheiro}`;
+        mensagem.style.display = 'block';
+    }
+
+    function pagar100(){
+        dinheiro = dinheiro - 100;
+        dinheiroUsuario.innerHTML = `Grana atual: R$${dinheiro}`;
+    }
+
+    function pagar500(){
+        dinheiro = dinheiro - 500;
+        dinheiroUsuario.innerHTML = `Grana atual: R$${dinheiro}`;
+    }
+
+    function ganhar2000(){
+        dinheiro = dinheiro + 2000;
+        dinheiroUsuario.innerHTML = `Grana atual: R$${dinheiro}`;
+    }
+
+</script>

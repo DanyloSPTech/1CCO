@@ -1,0 +1,77 @@
+<!-- Nome: Danylo Dias Gomes | RA: 02221004  -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 14 - Lista 05</title>
+</head>
+<body>
+    <h1>Exercício 14 - Lista 05</h1>
+    <p>SABOR DA PIZZA</p>
+    <select id="slcSaborPizza">
+        <option value="23.00">Muçarela</option>
+        <option value="24.00">Calabresa</option>
+        <option value="26.00">Atum</option>
+        <option value="30.00">Portuguesa</option>
+    </select>
+    <p>INCREMENTO DA PIZZA</p>
+    <select id="slcIncremento1">
+        <option value="2.00">Queijo</option>
+        <option value="2.50">Presunto</option>
+        <option value="1.50">Ovo</option>
+        <option value="4.00">Palmito</option>
+        <option value="3.50">Frango</option>
+        <option value="3.00">Catupiry</option>
+    </select>
+    <br>
+    <br>
+    <select id="slcIncremento2">
+        <option value="2.00">Queijo</option>
+        <option value="2.50">Presunto</option>
+        <option value="1.50">Ovo</option>
+        <option value="4.00">Palmito</option>
+        <option value="3.50">Frango</option>
+        <option value="3.00">Catupiry</option>
+    </select>
+    <br>
+    <br>
+    <select id="slcIncremento3">
+        <option value="2.00">Queijo</option>
+        <option value="2.50">Presunto</option>
+        <option value="1.50">Ovo</option>
+        <option value="4.00">Palmito</option>
+        <option value="3.50">Frango</option>
+        <option value="3.00">Catupiry</option>
+    </select>
+    <br>
+    <br>
+    <button onclick="calcularPreco()">Calcular Preço da Pizza</button>
+    <br>
+    <br>
+    <div id="mensagem" style="display: none;">
+        <p>A Pizza era R$ <b id="txtValorOriginal">XX,XX</b>, mas foi acrescido R$ <i id="txtIncremento1">YY,YY</i>, R$ <i id="txtIncremento2">ZZ,ZZ</i> e R$ <i id="txtIncremento3">WW,WW</i> custará um total de <u>R$ </u><u style="color: red;"><b id="txtValorTotal">99,99</b></u></p>
+    </div>
+</body>
+</html>
+
+<script>
+
+    function calcularPreco(){
+        var valorPizza = Number(slcSaborPizza.value);
+        var incremento1 = Number(slcIncremento1.value);
+        var incremento2 = Number(slcIncremento2.value);
+        var incremento3 = Number(slcIncremento3.value);
+        var valorTotal = valorPizza + incremento1 + incremento2 + incremento3;
+
+        txtValorOriginal.innerHTML = valorPizza.toFixed(2);
+        txtIncremento1.innerHTML = incremento1.toFixed(2);
+        txtIncremento2.innerHTML = incremento2.toFixed(2);
+        txtIncremento3.innerHTML = incremento3.toFixed(2);
+        txtValorTotal.innerHTML = valorTotal.toFixed(2);
+
+        mensagem.style.display = 'block';
+    }
+
+</script>
