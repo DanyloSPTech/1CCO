@@ -5,7 +5,7 @@ body{
 .divB{
     background-color: #FFFFFF;
     height: 500px;
-    width: 50vw;
+    width: 50%;
     border: dotted #000000 10px;
     display: flex;
     flex-direction: column;
