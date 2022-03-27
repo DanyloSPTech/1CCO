@@ -1,0 +1,35 @@
+body{
+    background-color: #ACACAC;
+}
+
+.divB{
+    background-color: #FFFFFF;
+    height: 500px;
+    width: 50vw;
+    border: dotted #000000 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divC{
+    background-color: #FFF000;
+    height: 50px;
+    width: 30%;
+}
+
+.divD{
+    background-color: rgb(255, 115, 0);
+    height: 100px;
+    width: 30%;
+}
+
+.divE{
+    background-color: rgb(15, 128, 0);
+    color: #FFFFFF;
+    font-size: 30px;
+    padding: 50px;
+    margin-left: 50px;
+    margin-top: 50px;
+}

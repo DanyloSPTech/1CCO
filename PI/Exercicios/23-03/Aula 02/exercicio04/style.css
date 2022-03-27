@@ -1,0 +1,85 @@
+.bloco1{
+    background-color: #6B3B3B;
+    border: solid #000000 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    width: 60%;
+}
+
+.bloco2{
+    background-color: #FFFFFF;
+    border: solid #000AAA 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.texto{
+    color: #000AAA;
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.bloco3{
+    margin-top: 70px;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+}
+
+.ret1{
+    width: 70%;
+    background-color: #1900FF;
+    height: 100%;
+}
+
+.ret2{
+    width: 40%;
+    background-color: #74134B;
+    height: 100%;
+}
+
+.ret3{
+    width: 60%;
+    background-color: #095315;
+    height: 100%;
+}
+
+.ret4{
+    width: 50%;
+    background-color: #FFFF00;
+    height: 100%;
+}
+
+.bloco4{
+    display: flex;
+    justify-content: center;
+    height: 30px;
+}
+
+.ret5{
+    width: 45%;
+    background-color: #FF0000;
+    height: 100%;
+}
+
+.ret6{
+    width: 20%;
+    background-color: #0B64A0;
+    height: 100%;
+}
+
+.ret7{
+    width: 35%;
+    background-color: #12AD04;
+    height: 100%;
+}
