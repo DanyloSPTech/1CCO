@@ -8,7 +8,7 @@
 
 .divB{
     background-color: #000000;
-    height: 50%;
+    height: 50vh;
     width: 50%;
     border: dashed #FF0000 10px;
     margin-left: 100px;
