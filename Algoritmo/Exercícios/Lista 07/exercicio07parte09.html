@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 07 - Parte 09 - If Else</title>
+</head>
+<body>
+    <h1>Peso Elevador</h1>
+    <p>Informe a quantidade de homens que entraram no elevador</p>
+    <input id="inpQtdeHomens">
+    <p>Informe a quantidade de mulheres que entraram no elevador</p>
+    <input id="inpQtdeMulheres">
+    <button onclick="analisarPeso()">Analisar Peso</button>
+    <p id="txtResposta"></p>
+    <p id="txtAlerta"></p>
+</body>
+</html>
+
+<script>
+
+    function analisarPeso(){
+        var qtdeHomens = Number(inpQtdeHomens.value);
+        var qtdeMulheres = Number(inpQtdeMulheres.value);
+
+        var pesoEstimado = (qtdeHomens * 80) + (qtdeMulheres * 60);
+
+        txtResposta.innerHTML = `Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${pesoEstimado} Kg`;
+
+        if(pesoEstimado > 800){
+            txtAlerta.innerHTML = `Será necessário descer alguém para que o elevador se movimente`;
+            if(pesoEstimado < 1000){
+                txtAlerta.style.color = 'blue';
+            } else {
+                txtAlerta.style.color = 'red';
+            }
+        }
+    }
+
+</script>

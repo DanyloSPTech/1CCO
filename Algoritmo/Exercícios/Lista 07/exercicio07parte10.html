@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 07 - Parte 10 - If Else</title>
+</head>
+<body>
+    <h1>Séries SITCOM</h1>
+    <p>Qual foi a última série (SITCOM) que você assistiu?</p>
+    <input id="inpNomeSerie">
+    <p>Quantos episódios você viu dessa série?</p>
+    <input id="inpQtdeEpisodios">
+    <button onclick="verificar()">Verificar Nível</button>
+    <p id="txtResposta"></p>
+</body>
+</html>
+
+<script>
+
+    function verificar(){
+
+        var nomeSerie = inpNomeSerie.value;
+        var qtdeEpisodios = Number(inpQtdeEpisodios.value);
+        var qtdeHoras = (qtdeEpisodios * 22) / 60;
+
+        txtResposta.innerHTML = `Vejo que você gosta da série ${nomeSerie}.`;
+
+        if(qtdeHoras > 30){
+            txtResposta.innerHTML += ` Uau, você realmente gosta dessa série!`;
+        }
+
+    }
+
+</script>
