@@ -8,34 +8,74 @@ body{
     border-bottom: 3px solid aqua;
     display: flex;
     justify-content: space-between;
+
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+    display: flex;
 }
 
 .header .container{
-    width: 80%;
-    margin: auto;
-    border: 3px solid orange;
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .header .container .destaque{
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .titulo{
     color: aqua;
-    border: 3px solid purple;
     width: fit-content;
+    font-weight: 500;
 }
 
 .navBar{
     color: coral;
     list-style: none;
-    border: 3px solid red;
     display: flex;
     justify-content: space-evenly;
     width: 300px;
     padding: 0;
     justify-items: center;
+}
+
+/* Fim Cabeçalho */
+
+/* Começo Banner */
+
+.banner{
+    background-image: url("imgs/bg-jelly-fish-para-home.png");
+    height: 500px;
+    color: #FFFFFF;
+    display: flex;
+}
+
+.banner .container p span {
+    font-weight: 1000;
+}
+
+.banner .container{
+    width: 10%;
+    font-size: 36px;
+    justify-content: center;
+}
+
+/* Fim do Banner */
+
+/* Começo Social */
+
+.social{
+    background-color: beige;
+    display: flex;
+}
+
+.social .container .boxes{
+    display: flex;
+}
+
+.social .container .boxes .box img{
+    width: 200px;
 }
