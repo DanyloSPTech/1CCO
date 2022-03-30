@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 02 - Validação de Inputs</title>
+    </head>
+    <body>
+        <h1>Sistema AutoEscola</h1>
+        <p>Informe o nome do aluno</p>
+        <input id="inpNome">
+        <p>Informe a idade do aluno</p>
+        <input id="inpIdade">
+        <button onclick="cadastrar()">Cadastrar</button>
+        <div id="caixaRespostas">
+            
+        </div>
+    </body>
+</html>
+
+<script>
+
+    function cadastrar(){
+        var nome = inpNome.value;
+        var idade = Number(inpIdade.value);
+
+        if(nome == ''){
+            alert("Nome Invalido");
+        }else {
+            if(idade <= 0){
+                alert("Idade Inválida");
+            }else {
+                if(idade > 80){
+                    alert("Procurar Escola Especial");
+                }else {
+                    var testeMenor = idade - 18;
+                    if(testeMenor < 0){
+                        var anos = 18 - idade;
+                        caixaRespostas.innerHTML += `<p>Nome Aluno: ${nome} | Idade: ${idade} <span style='color: orange'>| Este aluno tem que aguardar ${anos} ano(s) para tirar a CNH</span></p>`;
+                    }else {
+                        caixaRespostas.innerHTML += `<p>Nome Aluno: ${nome} | Idade: ${idade}</p>`;
+                    }
+                }
+            }
+        }
+    }
+
+</script>

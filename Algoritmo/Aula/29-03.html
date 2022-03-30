@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivo de aula 29-03 - Validação de Inputs</title>
+</head>
+<body>
+    <h1>Localização com Validação</h1>
+    <p>Local de Nascimento</p>
+    <select id="slcLocal">
+        <option value="0">-- Selecionar --</option>
+        <option value="1">SP - Capital</op;tion>
+        <option value="2">SP - Interior</option>
+        <option value="3">Outros Estados</option>
+    </select>
+    <button onclick="falarLocal()">Falar do Local</button>
+    <br>
+    <div>
+        <br>
+        <img id="imgLocal" src="" style="height: 400px;">
+        <h3 id="txtLocal"></h3>
+    </div>
+</body>
+</html>
+
+<script>
+
+    function falarLocal(){
+        var opcaoEscolhida = slcLocal.value;
+
+        if(opcaoEscolhida == 0){
+            imgLocal.src = '';
+            txtLocal.innerHTML = '';
+            alert('Favor escolher uma opção');
+        }
+        if(opcaoEscolhida == 1){
+            imgLocal.src = 'https://visitesaopaulo.com/wp-content/uploads/2021/06/AS00106-Ponte-Estaiada-scaled.jpg';
+            txtLocal.innerHTML = 'Os nascidos nessa cidade são Paulistanos.';
+        }
+        if(opcaoEscolhida == 2){
+            imgLocal.src = 'https://www.carroaluguel.com/blog/wp-content/uploads/2017/09/interior-de-sao-paulo.jpg';
+            txtLocal.innerHTML = 'Os nascidos neste estado são Paulistas';
+        }
+        if(opcaoEscolhida == 3){
+            imgLocal.src = 'https://paranashop.com.br/wp-content/uploads/2019/05/Uma-Terra-Cheia-de-Encantos-Descubra-o-que-Fazer-em-Fortaleza-770x450.jpg';
+            txtLocal.innerHTML = 'Os nascidos neste lugar não são Paulistanos e nem Paulistas';
+        }
+    }
+
+</script>
