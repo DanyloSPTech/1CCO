@@ -72,8 +72,8 @@ SELECT nome, peso FROM Pet;
 -- Exibindo os dados dos pets ordenados em ordem crescente pelo nome
 SELECT * FROM Pet ORDER BY nome;
 
--- Exibindo os dados dos clientes ordenados em ordem decrescente pelo bairro || MANDAR EMAIL
-SELECT * FROM Cliente ORDER BY bairro DESC;
+-- Exibindo os dados dos clientes ordenados em ordem decrescente pelo bairro
+SELECT * FROM Cliente, EnderecoCliente WHERE idCliente = fkCliente ORDER BY bairro DESC;
 
 -- Exibindo os dados dos pets cujo o nome comecem com determinada letra
 SELECT * FROM Pet WHERE nome LIKE 'S%';
@@ -106,3 +106,74 @@ SELECT * FROM Pet;
 DROP TABLE EnderecoCliente;
 DROP TABLE Pet;
 DROP TABLE Cliente;
+
+-- _____________________________________________________________________________________________________________________________________
+
+-- Criando o banco de dados Gastos
+CREATE DATABASE Gastos;
+
+-- Selecionando o banco de dados Gastos
+USE Gastos;
+
+-- Criando a tabela Pessoa
+CREATE TABLE Pessoa(
+	idPessoa INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR (75),
+    dataNasc DATE,
+    profissao VARCHAR (45),
+    segundoIdioma VARCHAR (20),
+    terceiroIdioma VARCHAR (20)
+);
+
+-- Criando a tabela Gasto
+CREATE TABLE Gasto(
+	idGasto INT PRIMARY KEY AUTO_INCREMENT,
+    dataGasto DATE,
+    valor DECIMAL (6,2) CHECK (valor > 0),
+    descricao VARCHAR (45),
+    fkPessoa INT,
+    FOREIGN KEY (fkPessoa) REFERENCES Pessoa (idPessoa)
+);
+
+-- Inserindo dados na tabela Pessoa
+INSERT INTO Pessoa (nome, dataNasc, profissao, segundoIdioma, terceiroIdioma)
+	VALUES ('Pedro Otávio', '1989-07-21', 'Designer', 'Inglês', 'Mandarim'),
+			('Heloisa Porto', '1997-04-03', 'Engenheira Ambiental', 'Espanhol', NULL),
+            ('Sandra Carolina', '1994-09-05', 'Contadora', NULL, NULL);
+            
+INSERT INTO Gasto (dataGasto, valor, descricao, fkPessoa)
+	VALUES ('2022-03-15', 2.00, 'Casquinha de Sorvete', 3),
+			('2022-03-18', 32.00, 'Conta Restaurante BS', 2),
+            ('2022-03-02', 58.00, 'Camiseta Preta', 1),
+            ('2022-02-27', 158.50, 'Moletom Branco', 1),
+            ('2022-03-25', 1250.80, 'Tênis Air Jordan 1 Retro High', 2);
+
+-- Exiba os dados de cada tabela individualmente
+SELECT * FROM Pessoa;
+SELECT * FROM Gasto;
+
+-- Exiba os dados da tabela pessoa, filtrando por algum dado
+SELECT * FROM Pessoa WHERE profissao = 'Designer';
+
+-- Exiba os dados da tabela gastos de forma que os gastos mais recentes apareçam primeiro
+SELECT * FROM Gasto ORDER BY dataGasto DESC;
+
+-- Exiba as pessoas e os gastos correspondentes
+SELECT * FROM Pessoa, Gasto WHERE idPessoa = fkPessoa;
+
+-- Exiba os dados de uma pessoa e seus gastos
+SELECT * FROM Pessoa, Gasto WHERE idPessoa = fkPessoa AND nome = 'Pedro Otávio';
+
+-- Exiba os dados das pessoas e os gastos correspondentes, mas apenas de uma determinada data
+SELECT * FROM Pessoa, Gasto WHERE idPessoa = fkPessoa AND dataGasto = '2022-03-25';
+
+-- Atualize valores já inseridos na tabela
+UPDATE Pessoa SET terceiroIdioma = 'Inglês' WHERE idPessoa = 2;
+UPDATE Gasto SET valor = 2.50 WHERE idGasto = 1;
+
+SELECT * FROM Pessoa;
+SELECT * FROM Gasto;
+
+-- Exclua um ou mais registros de alguma tabela
+DELETE FROM Gasto WHERE idGasto IN (3, 5);
+SELECT * FROM Gasto;
