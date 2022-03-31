@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercicio 10 - Else if</title>
+    </head>
+    <body>
+        <h1>Sistema Banco SPTO</h1>
+        <p>Informe seu nome:</p>
+        <input id="inpNome">
+        <p>Informe seu saldo:</p>
+        <input id="inpSaldo">
+        <button onclick="verificar()">Verificar Conta</button>
+        <h4 id="txtResposta"></h4>
+    </body>
+</html>
+
+<script>
+
+    function verificar(){
+        var nome = inpNome.value;
+        var saldo = Number(inpSaldo.value);
+
+        if(saldo < 0){
+            txtResposta.innerHTML = `Com o saldo de R$ ${saldo.toFixed(2)} o cliente ${nome} está com saldo devedor`;
+        }else if(saldo <= 2000){
+            txtResposta.innerHTML = `Com o saldo de R$ ${saldo.toFixed(2)} o cliente ${nome} está com saldo NORMAL`;
+        }else if(saldo <= 5000){
+            txtResposta.innerHTML = `Com o saldo de R$ ${saldo.toFixed(2)} o cliente ${nome} está com saldo ACIMA DA MÉDIA`;
+        } else if(saldo > 5000){
+            txtResposta.innerHTML = `Com o saldo de R$ ${saldo.toFixed(2)} o cliente ${nome} TEM PERFIL DE INVESTIDOR`;
+        } else {
+            txtResposta.innerHTML = `Valor Inválido!`;
+        }
+    }
+
+</script>

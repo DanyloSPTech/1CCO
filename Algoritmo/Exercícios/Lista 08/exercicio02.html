@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02 - Else if</title>
+</head>
+<body>
+    <h1>Classe Social Tuvalu</h1>
+    <p>Informe a renda familiar mensal:</p>
+    <input id="inpRendaFamiliar">
+    <button onclick="analisar()">Analisar Renda</button>
+    <h4 id="txtResposta"></h4>
+</body>
+</html>
+
+<script>
+
+    // Função responsável por testar a renda e exibir a mensagem correspondente no txtResposta
+    function analisar(){
+
+        var rendaFamiliar = Number(inpRendaFamiliar.value);
+        if(rendaFamiliar < 0){
+            txtResposta.innerHTML = "Renda Inválida!";
+        } else if(rendaFamiliar <= 250){
+            txtResposta.innerHTML = "Classe E";
+        } else if(rendaFamiliar <= 900){
+            txtResposta.innerHTML = "Classe D";
+        } else if(rendaFamiliar <= 2500){
+            txtResposta.innerHTML = "Classe C";
+        } else if(rendaFamiliar <= 9500){
+            txtResposta.innerHTML = "Classe B";
+        } else {
+            txtResposta.innerHTML = "Classe A";
+        }
+
+    }
+
+</script>
