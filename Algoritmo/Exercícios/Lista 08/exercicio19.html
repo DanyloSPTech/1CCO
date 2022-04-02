@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 19 - Else if</title>
+</head>
+<body>
+    <div style="width: 300px;">
+        <img id="imgGoku" style="width: 300px;" src="https://static.wikia.nocookie.net/liga-da-zueira-oficial/images/d/da/Goku_render_1_alt_1_by_ssjrose890_ddujowl-fullview.png/revision/latest/scale-to-width-down/1200?cb=20200806022458&path-prefix=pt-br">
+        <div id="barraVidaGoku" style="height: 20px; width: 300px; background-color: blue;"></div>
+        <button onclick="gokuApanha()">Apanhar</button>
+    </div>
+    <br>
+    <div style="width: 300px;">
+        <img id="imgFreeza" style="width: 300px;" src="https://i.pinimg.com/originals/9f/4c/89/9f4c89b78ebba00ee529cc0e70160651.png">
+        <div id="barraVidaFreeza" style="height: 20px; width: 300px; background-color: red;"></div>
+        <button onclick="freezaApanha()">Apanhar</button>
+    </div>
+    <h3 id="txtVencedor"></h3>
+</body>
+</html>
+
+<script>
+
+    var vidaGoku = 300;
+    var vidaFreeza = 300;
+
+    function gokuApanha(){
+        vidaGoku -= 25;
+        barraVidaGoku.style.width = `${vidaGoku}px`;
+        if(vidaGoku <= 0){
+            imgGoku.src = 'https://cdn-icons-png.flaticon.com/512/2178/2178247.png';
+            txtVencedor.innerHTML = 'Freeza Venceu!';
+        } 
+    }
+
+    function freezaApanha(){
+        vidaFreeza -= 25;
+        barraVidaFreeza.style.width = `${vidaFreeza}px`;
+        if(vidaFreeza <= 0){
+            imgFreeza.src = 'https://cdn-icons-png.flaticon.com/512/2178/2178247.png';
+            txtVencedor.innerHTML = 'Goku Venceu!';
+        } 
+    }
+
+</script>

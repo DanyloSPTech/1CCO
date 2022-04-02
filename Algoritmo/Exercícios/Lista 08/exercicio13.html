@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13 - Else if</title>
+</head>
+<body>
+    <h1>Valor Guardado: R$<span id="spnValor">0.00</span></h1>
+    <p id="txtEstado" style="color: blue;">Finanças OK!</p>
+    <p id="txtEstado2"></p>
+    <button onclick="guardar5()">Guardar R$ 5.00</button>
+    <button onclick="gastar10()">Gastar R$ 10.00</button>
+</body>
+</html>
+
+<script>
+
+    var saldo = 0;
+
+    function guardar5(){
+        saldo += 5;
+        if(saldo < -20){
+            txtEstado.innerHTML = 'Finanças em Perigo!';
+            txtEstado.style.color = 'red';
+            txtEstado2.innerHTML = 'Quase um Corinthians!';
+        } else if(saldo < 0){
+            txtEstado.innerHTML = 'Finanças em Perigo!';
+            txtEstado.style.color = 'red';
+            txtEstado2.innerHTML = '';
+        } else if(saldo <= 100){
+            txtEstado.innerHTML = 'Finanças OK!';
+            txtEstado.style.color = 'blue';
+            txtEstado2.innerHTML = '';
+        } else{
+            txtEstado.innerHTML = 'Finanças OK!';
+            txtEstado.style.color = 'blue';
+            txtEstado2.innerHTML = '#ostentação';
+        }
+        spnValor.innerHTML = saldo.toFixed(2);
+    }
+
+    function gastar10(){
+        saldo -= 10;
+        if(saldo < -20){
+            txtEstado.innerHTML = 'Finanças em Perigo!';
+            txtEstado.style.color = 'red';
+            txtEstado2.innerHTML = 'Quase um Corinthians!';
+        } else if(saldo < 0){
+            txtEstado.innerHTML = 'Finanças em Perigo!';
+            txtEstado.style.color = 'red';
+            txtEstado2.innerHTML = '';
+        } else if(saldo <= 100){
+            txtEstado.innerHTML = 'Finanças OK!';
+            txtEstado.style.color = 'blue';
+            txtEstado2.innerHTML = '';
+        } else{
+            txtEstado.innerHTML = 'Finanças OK!';
+            txtEstado.style.color = 'blue';
+            txtEstado2.innerHTML = '#ostentação';
+        }
+        spnValor.innerHTML = saldo.toFixed(2);
+    }
+
+</script>
