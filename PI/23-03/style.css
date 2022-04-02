@@ -74,6 +74,7 @@ body{
 .social{
     background-color: beige;
     display: flex;
+    padding-bottom: 50px;
 }
 
 .social .container .boxes{
@@ -97,7 +98,7 @@ body{
 
 .footer{
     background-color: #32B9CD;
-    height: 150px;
+    height: 95px;
     color: #FFFFFF;
     display: flex;
     font-size: 20px;
@@ -121,10 +122,15 @@ a{
     color: palevioletred;
     align-items: center;
     border-radius: 12px;
+    border: solid palevioletred 5px;
 }
 
 .card h1{
     font-size: 30px;
+}
+
+.card h2{
+    font-size: 25px;
 }
 
 .card h4{
@@ -136,10 +142,11 @@ a{
     padding: 10px;
     text-align: center;
     border-radius: 12px;
+    width: 70%;
 }
 
 .card button{
-    height: 50px;
+    height: 40px;
     width: 100px;
     background-color: palevioletred;
     margin-top: 25px;
@@ -149,4 +156,80 @@ a{
     border: 0;
     border-radius: 18px;
     cursor: pointer;
+}
+
+/* Cadastro */
+
+.bannerCadastro{
+    background-image: url("imgs/bg-jelly-fish-para-home.png");
+    height: 650px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}
+
+.containerCadastro{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardCadastro{
+    background-color: beige;
+    height: 550px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    color: palevioletred;
+    align-items: center;
+    border-radius: 12px;
+    border: solid palevioletred 5px;
+}
+
+.cardCadastro h1{
+    font-size: 30px;
+}
+
+.cardCadastro h2{
+    font-size: 25px;
+}
+
+.cardCadastro h4{
+    font-size: 16px;
+}
+
+.cardCadastro input {
+    border: palevioletred solid 2px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 12px;
+    width: 70%;
+}
+
+.cardCadastro button{
+    height: 50px;
+    width: 180px;
+    background-color: palevioletred;
+    margin-top: 25px;
+    font-size: 20px;
+    color: #FFFFFF;
+    font-family: monospace;
+    border: 0;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.senhaCadastro{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: center;
+}
+
+.campoSenha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
