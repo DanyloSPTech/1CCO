@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 07 - If Else</title>
+    </head>
+    <body>
+        <select id="slcEspecie" onchange="escolhaEspecie()">
+            <option value="0">- Escolha uma espécie -</option>
+            <option value="1">Ovíparos</option>
+            <option value="2">Mamiferos</option>
+        </select>
+        <br>
+        <br>
+        <select id="slcOviparo" style="display: none;" onchange="escolhaOviparo()">
+            <option value="0">- Escolha um Ovíparo -</option>
+            <option value="1">Galinha</option>
+            <option value="2">Peixe</option>
+            <option value="3">Tartaruga</option>
+        </select>
+        <select id="slcMamifero" style="display: none;" onchange="escolhaMamifero()">
+            <option value="0">- Escolha um Mamífero -</option>
+            <option value="1">Elefante</option>
+            <option value="2">Porco</option>
+            <option value="3">Coelho</option>
+        </select>
+        <br>
+        <br>
+        <img id="imgAnimal" src="" style="height: 300px;">
+        <br>
+        <div id="blocoImposto" style="display: none;">
+            <p>Valor da Compra do Animal</p>
+            <input id="inpValorCompra">
+            <br>
+            <br>
+            <button onclick="calcularImposto()">Calcular Imposto</button>
+            <button onclick="reset()">Restart</button>
+        </div>
+        <p id="txtResposta"></p>
+    </body>
+</html>
+
+<script>
+
+    var txtEspecie = '';
+    historicoImposto = 0;
+
+    function escolhaEspecie(){
+        var especie = Number(slcEspecie.value);
+        if(especie == 0){
+            slcOviparo.style.display = 'none';
+            slcMamifero.style.display = 'none';
+            imgAnimal.src = '';
+            txtResposta.innerHTML = '';
+            blocoImposto.style.display = 'none';
+            inpValorCompra.value = '';
+        } else if(especie == 1){
+            slcOviparo.style.display = 'block';
+            slcMamifero.style.display = 'none';
+            txtEspecie = 'oviparo';
+            imgAnimal.src = '';
+            txtResposta.innerHTML = '';
+            blocoImposto.style.display = 'none';
+            inpValorCompra.value = '';
+        } else {
+            slcOviparo.style.display = 'none';
+            slcMamifero.style.display = 'block';
+            txtEspecie = 'mamifero';
+            imgAnimal.src = '';
+            txtResposta.innerHTML = '';
+            blocoImposto.style.display = 'none';
+            inpValorCompra.value = '';
+        }
+    }
+
+    function escolhaOviparo(){
+        var oviparo = Number(slcOviparo.value);
+        if(oviparo == 0){
+            imgAnimal.src = '';
+        } else if(oviparo == 1){
+            imgAnimal.src = 'https://pbs.twimg.com/media/CpcDiYTXgAAVzYu.jpg';
+            txtResposta.innerHTML = '';
+            inpValorCompra.value = '';
+            blocoImposto.style.display = 'block';
+        } else if(oviparo == 2){
+            imgAnimal.src = 'https://s2.static.brasilescola.uol.com.br/be/2020/12/peixe.jpg';
+            txtResposta.innerHTML = '';
+            inpValorCompra.value = '';
+            blocoImposto.style.display = 'block';
+        } else {
+            imgAnimal.src = 'https://istoe.com.br/wp-content/uploads/sites/14/2021/09/desert-turtle-4814628-640-e1632586770912.jpg';
+            blocoImposto.style.display = 'block';
+            txtResposta.innerHTML = '';
+            inpValorCompra.value = '';
+        }
+    }
+
+    function escolhaMamifero(){
+        var mamifero = Number(slcMamifero.value);
+        if(mamifero == 0){
+            imgAnimal.src = '';
+        } else if(mamifero == 1){
+            imgAnimal.src =  'https://static.escolakids.uol.com.br/conteudo_legenda/9f30571b4af7e68277b63ca1fb5ae357.jpg';
+            blocoImposto.style.display = 'block';
+            txtResposta.innerHTML = '';
+            inpValorCompra.value = '';
+        } else if(mamifero == 2){
+            imgAnimal.src = 'https://files.agro20.com.br/uploads/2019/03/racas-de-porco-02-1024x681.jpg';
+            blocoImposto.style.display = 'block';
+            txtResposta.innerHTML = '';
+            inpValorCompra.value = '';
+        } else {
+            imgAnimal.src = 'https://www.dicaspetz.com.br/wp-content/uploads/2019/04/como-cuidar-de-coelho-filhote.jpg';
+            blocoImposto.style.display = 'block';
+            txtResposta.innerHTML = '';
+            inpValorCompra.value = '';
+        }
+    }
+
+    function calcularImposto(){
+        var valorCompra = Number(inpValorCompra.value);
+        var imposto = 0;
+        if(txtEspecie == 'oviparo'){
+            imposto = (valorCompra * 5) / 100;
+        } else if(txtEspecie == 'mamifero'){
+            imposto = (valorCompra * 10) / 100;
+        } else {
+            txtResposta.innerHTML = 'erro!';
+        }
+        historicoImposto += imposto;
+        txtResposta.innerHTML = `O valor do imposto será de: R$ ${imposto.toFixed(2)}`;
+    }
+
+    function reset(){
+        alert(`Valor total de todos os impostos calculados R$ ${historicoImposto.toFixed(2)}`);
+        blocoImposto.style.display = 'none';
+        imgAnimal.src = '';
+        slcOviparo.style.display = 'none';
+        slcMamifero.style.display = 'none';
+        txtResposta.innerHTML = '';
+    }
+
+</script>
