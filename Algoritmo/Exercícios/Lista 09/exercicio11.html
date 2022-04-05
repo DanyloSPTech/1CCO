@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11 - &&</title>
+</head>
+<body>
+    <p>Informe a sua idade:</p>
+    <input id="inpIdade">
+    <p>Informe o seu salário:</p>
+    <input id="inpSalario">
+    <button onclick="analisar()">Analisar Situação</button>
+    <p id="txtResposta"></p>
+</body>
+</html>
+
+<script>
+
+    function analisar(){
+        
+        var idade = Number(inpIdade.value);
+        var salario = Number(inpSalario.value);
+
+        if(idade < 18 && salario < 2500){
+            txtResposta.innerHTML = "Menor de Idade e Liso";
+        } else if(idade < 18 && salario >= 2500){
+            txtResposta.innerHTML = "Menor de Idade e Ostentação";
+        } else if(idade >= 18 && salario < 3500){
+            txtResposta.innerHTML = "Maior de Idade e Liso";
+        } else if(idade >= 18 && salario >= 3500 && salario <= 7000){
+            txtResposta.innerHTML = "Maior de Idade e Ostentação";
+        } else if(idade >= 18 && salario > 7000){
+            txtResposta.innerHTML = "Maior de Idade e Mega Ostentação";
+        } else {
+            txtResposta.innerHTML = "Valores Inválidos!";
+        }
+
+    }
+
+</script>

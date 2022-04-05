@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 04 - &&</title>
+</head>
+<body>
+    <h1>Vegano?</h1>
+    <p>O que você come no café da manhã?</p>
+    <select id="slcCafeManha">
+        <option value="1">Ovos</option>
+        <option value="2">Leite de Arroz</option>
+        <option value="3">Bacon</option>
+    </select>
+    <p>O que você come no almoço?</p>
+    <select id="slcAlmoco">
+        <option value="1">Bife</option>
+        <option value="2">Hamburguer de Soja</option>
+        <option value="3">Frango Grelhado</option>
+    </select>
+    <p>O que você come na janta?</p>
+    <select id="slcJanta">
+        <option value="1">Picanha de Soja</option>
+        <option value="2">Cupim</option>
+        <option value="3">Coração</option>
+    </select>
+    <button onclick="analisar()">Sou Vegano</button>
+</body>
+</html>
+
+<script>
+
+    function analisar(){
+
+        cafe = Number(slcCafeManha.value);
+        almoco = Number(slcAlmoco.value);
+        janta = Number(slcJanta.value);
+
+        if(cafe == 2 && almoco == 2 && janta == 1){
+            alert("Sim, você é vegano!");
+        }else{
+            alert("Não, você não é vegano");
+        }
+
+    }
+
+</script>
