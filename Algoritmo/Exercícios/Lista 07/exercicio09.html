@@ -79,6 +79,7 @@
         var oviparo = Number(slcOviparo.value);
         if(oviparo == 0){
             imgAnimal.src = '';
+            blocoImposto.style.display = 'none';
         } else if(oviparo == 1){
             imgAnimal.src = 'https://pbs.twimg.com/media/CpcDiYTXgAAVzYu.jpg';
             txtResposta.innerHTML = '';
@@ -101,6 +102,7 @@
         var mamifero = Number(slcMamifero.value);
         if(mamifero == 0){
             imgAnimal.src = '';
+            blocoImposto.style.display = 'none';   
         } else if(mamifero == 1){
             imgAnimal.src =  'https://static.escolakids.uol.com.br/conteudo_legenda/9f30571b4af7e68277b63ca1fb5ae357.jpg';
             blocoImposto.style.display = 'block';
@@ -140,6 +142,7 @@
         slcOviparo.style.display = 'none';
         slcMamifero.style.display = 'none';
         txtResposta.innerHTML = '';
+        historicoImposto = 0;
     }
 
 </script>
