@@ -13,7 +13,7 @@ CREATE TABLE Projeto (
 
 -- Criando a Tabela Aluno
 CREATE TABLE Aluno (
-	ra INT PRIMARY KEY AUTO_INCREMENT,
+	ra INT PRIMARY KEY,
     nome VARCHAR (75),
     telefone CHAR (13),
     fkRepresentante INT,
@@ -32,5 +32,32 @@ CREATE TABLE Acompanhante (
     PRIMARY KEY (fkRa, idAcompanhante)
 );
 
---
-
+-- Inserindo Dados na Tabela Projeto
+INSERT INTO Projeto (nome, descricao)
+	VALUES ('Greentech', 'Estufas Inteligentes para Tomates'),
+			('EcoTech', 'Sistema para Controlar Ocupação de Lixeiras'),
+            ('Pai Coruja', 'Sistema de Comunicação Escolar');
+            
+-- Inserindo Dados na Tabela Aluno
+INSERT INTO Aluno (ra, nome, telefone, fkRepresentante, fkProjeto)
+	VALUES (01222062,'Julio Ryan Ramos', '11 99133-2686', NULL, 2),
+			(01222031,'Daiane Beatriz Oliveira', '11 99265-2019', NULL, 1),
+            (01222004,'Jéssica Bárbara Lopes', '11 98662-8497', 01222031, 2),
+            (01222025,'Tiago Mário Ricardo', '11 98711-3686', 01222062, 1),
+			(01222040,'Augusto Heitor Monteiro', '11 98995-3113', 01222062, 3),
+            (01222015,'Douglas Adão Nascimento', '11 98951-5561', 01222031, 3);
+            
+-- Inserindo Dados na Tabela Acompanhante
+INSERT INTO Acompanhante (fkRa, idAcompanhante, nome, relacaoAluno)
+	VALUES (01222062, 1, 'Thomas Carlos', 'Pai'),
+			(01222031, 1, 'Elza Brenda', 'Mâe'),
+            (01222031, 2, 'Vitor Edson', 'Pai'),
+            (01222004, 1, 'Francisca Josefa', 'Vó'),
+            (01222004, 2, 'Anderson Benício', 'Namorado'),
+            (01222025, 1, 'Sabrina Nascimento', 'Namorada'),
+            (01222040, 1, 'Agatha Nair', 'Tia'),
+            (01222015, 1, 'Oliver Leandro', 'Pai'),
+            (01222015, 2, 'Maya Nina', 'Namorada'),
+            (01222015, 3, 'Miguel Benedito', 'Primo');
+            
+-- Exibindo os dados de todas as tabelas separadamente
