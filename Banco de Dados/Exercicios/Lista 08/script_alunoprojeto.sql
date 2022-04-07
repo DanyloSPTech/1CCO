@@ -61,3 +61,23 @@ INSERT INTO Acompanhante (fkRa, idAcompanhante, nome, relacaoAluno)
             (01222015, 3, 'Miguel Benedito', 'Primo');
             
 -- Exibindo os dados de todas as tabelas separadamente
+SELECT * FROM Projeto;
+SELECT * FROM Aluno;
+SELECT * FROM Acompanhante;
+
+-- Exibindo os dados dos alunos e dos projetos correspondentes
+SELECT * FROM Aluno, Projeto WHERE fkProjeto = idProjeto;
+
+-- Exibindo os dados dos alunos e dos seus acompanhantes
+SELECT * FROM Aluno, Acompanhante WHERE fkRa = ra;
+
+-- Exibindo os dados dos alunos e dos seus representantes
+SELECT * FROM Aluno, Aluno AS Representante WHERE Aluno.fkRepresentante = Representante.ra;
+
+-- Exibindo dados dos alunos e do projeto, porém de somente 1 projeto selecionado pelo nome
+SELECT * FROM Aluno, Projeto WHERE fkProjeto = idProjeto AND Projeto.nome = 'Pai Coruja';
+
+-- Exibindo os dados dos alunos, dos projetos e dos seus acompanhantes
+SELECT * FROM Aluno, Projeto, Acompanhante WHERE fkProjeto = idProjeto AND fkRa = ra;
+
+-- _____________________________________________________________________________________
