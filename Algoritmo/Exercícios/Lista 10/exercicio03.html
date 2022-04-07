@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03 Lista 10 - OU</title>
+</head>
+<body>
+    
+    <p>Informe sua renda individual:</p>
+    <input id="inpRendaIndividual">
+    <p>Informe sua renda familiar:</p>
+    <input id="inpRendaFamiliar">
+    <button onclick="analisar()">Terei o benefício</button>
+    <p id="txtMensagem"></p>
+
+</body>
+</html>
+
+<script>
+
+    function analisar(){
+
+        var rendaIndividual = Number(inpRendaIndividual.value);
+        var rendaFamiliar = Number(inpRendaFamiliar.value);
+
+        if(rendaIndividual <= 2000 || rendaFamiliar <= 3000){
+            txtMensagem.innerHTML = "Você terá direito ao auxílio";
+        }else {
+            txtMensagem.innerHTML = "Sem direito ao auxílio";
+        }
+
+    }
+
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 01 Lista 10 - OU</title>
+    </head>
+    <body>
+        
+        <p>Informe a fruta que chegou na mesa</p>
+        <input id="inpFruta">
+        <button onclick="analisar()">Vai Comer?</button>
+
+    </body>
+</html>
+
+<script>
+
+    function analisar(){
+        var fruta = inpFruta.value;
+        if(fruta == 'Uva' || fruta == 'Abacaxi'){
+            alert(`Sim, Vai comer ${fruta}`);
+        }else {
+            alert(`A Fruta ${fruta} ela não come`);
+        }
+    }
+
+</script>

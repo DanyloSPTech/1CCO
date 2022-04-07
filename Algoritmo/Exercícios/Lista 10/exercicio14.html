@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 14 Lista 10 - OU</title>
+    </head>
+    <body>
+        <h1>Calcular Passagem</h1>
+        <select id="slcTipoPassageiro">
+            <option value="0">-- Selecione um Tipo de Passageiro</option>
+            <option value="1">Comum</option>
+            <option value="2">Estudante</option>
+            <option value="3">Idoso/PNE</option>
+        </select>
+        <select id="slcTipoPassagem">
+            <option value="0">-- Selecione um Tipo de Passagem</option>
+            <option value="1">Passagem Única</option>
+            <option value="2">Passagem Integração</option>
+        </select>
+        <button onclick="simular()">Simular Preço</button>
+        <p id="txtResposta"></p>
+    </body>
+</html>
+
+<script>
+
+    function simular(){
+
+        var tipoPassageiro = Number(slcTipoPassageiro.value);
+        var tipoPassagem = Number(slcTipoPassagem.value);
+        var valorUnitario = 0;
+        var precoPassagem = 0;
+
+        if(tipoPassagem == 0){
+            txtResposta.innerHTML = "Selecione um tipo de passagem válido!";
+        }else if(tipoPassagem == 1){
+            valorUnitario = 4.40;
+        }else {
+            valorUnitario = 5.90;
+        }
+
+        if(tipoPassageiro == 0){
+            txtResposta.innerHTML = "Selecione um tipo de passageiro válido!";
+        }else if(tipoPassageiro == 2 || tipoPassageiro == 3){
+            if(tipoPassageiro == 2){
+                var desconto = valorUnitario / 100;
+                var precoPassagem = valorUnitario - desconto;
+                txtResposta.innerHTML = `Valor da Passagem Escolhida: R$ ${precoPassagem.toFixed(2)}`;
+            }else{
+                precoPassagem = 0;
+                txtResposta.innerHTML = `Valor da Passagem Escolhida: R$ ${precoPassagem.toFixed(2)}`;
+            }
+        }else {
+            precoPassagem = valorUnitario;
+            txtResposta.innerHTML = `Valor da Passagem Escolhida: R$ ${precoPassagem.toFixed(2)}`;
+        }
+
+         
+
+    }
+
+</script>

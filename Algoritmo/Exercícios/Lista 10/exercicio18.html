@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 18 Lista 10 - OU</title>
+    </head>
+    <body>
+        <h1>Aprovar Aluno</h1>
+        <p>Informe a nota do aluno:</p>
+        <input id="inpNota">
+        <p>Informe a frequência do aluno:</p>
+        <input id="inpFrequencia">
+        <button onclick="analisar()">Analisar Aluno</button>
+        <p id="txtResposta"></p>
+    </body>
+</html>
+
+<script>
+
+    function analisar(){
+
+        var nota = Number(inpNota.value);
+        var frequencia = Number(inpFrequencia.value);
+
+        if(nota >= 0 && nota <= 10){
+            if(nota >= 0 && nota <= 100){
+                
+            }else{
+
+            }
+        }else {
+            alert(`Onde já se viu nota ${nota}?!`)
+            txtResposta.innerHTML = "";
+        }
+
+    }
+
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 09 Lista 10 - OU</title>
+    </head>
+    <body>
+        <h1>Ser ou não ser?</h1>
+        <select id="slcTipoAlimentacao">
+            <option value="0">-- Selecione Um Tipo de Alimentação</option>
+            <option value="1">Carne Bovina</option>
+            <option value="2">Soja</option>
+            <option value="3">Carne Suína</option>
+            <option value="4">Legumes</option>
+            <option value="5">Carne de Peixe</option>
+            <option value="6">Frutas</option>
+            <option value="7">Ovos</option>
+        </select>
+        <button onclick="analisar()">Tipo de Alimentação</button>
+        <p id="txtResposta"></p>
+    </body>
+</html>
+
+<script>
+
+    function analisar(){
+        txtResposta.innerHTML = "";
+
+        var alimentacao = Number(slcTipoAlimentacao.value);
+
+        if(alimentacao == 0){
+            txtResposta.innerHTML = "Selecione uma opção válida!";
+        }
+        if(alimentacao == 1 || alimentacao == 3 || alimentacao == 5 || alimentacao == 7){
+            txtResposta.innerHTML += "| Você não pode ser Vegano |";
+        }if(alimentacao == 2 || alimentacao == 4 || alimentacao == 6){
+            txtResposta.innerHTML += "| Você pode ser Vegano |";
+        }if(alimentacao == 2 || alimentacao == 4 || alimentacao == 6 || alimentacao == 7){
+            txtResposta.innerHTML += "| Você pode ser Vegetariano |";
+        }
+    }
+
+</script>
