@@ -25,13 +25,24 @@
         var frequencia = Number(inpFrequencia.value);
 
         if(nota >= 0 && nota <= 10){
-            if(nota >= 0 && nota <= 100){
-                
+            if(frequencia >= 0 && frequencia <= 100){
+                if(nota > 0 && nota < 6){
+                    txtResposta.innerHTML = "Aluno ficou abaixo da média";
+                }else if(nota >= 6 && nota <= 8){
+                    txtResposta.innerHTML = "Aluno ficou na média";
+                }else{
+                    txtResposta.innerHTML = "Aluno acima da média";
+                }
+                if(frequencia >= 75){
+                    txtResposta.innerHTML += "<br> Aluno Aprovado por frequência";
+                }else {
+                    txtResposta.innerHTML += "<br> Aluno Reprovado por frequência";
+                }
             }else{
-
+                alert(`Onde já se viu frequência ${frequencia}?!`);
             }
         }else {
-            alert(`Onde já se viu nota ${nota}?!`)
+            alert(`Onde já se viu nota ${nota}?!`);
             txtResposta.innerHTML = "";
         }
 
