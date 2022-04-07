@@ -93,9 +93,19 @@ SELECT * FROM Jogador, Jogador AS Conselheiro WHERE Jogador.fkConselheiro = Cons
 -- Exibir os dados dos jogadores, dos seus conselheiros e dos seus times
 SELECT * FROM Jogador, Jogador AS Conselheiro, TimeF WHERE Jogador.fkConselheiro = Conselheiro.idJogador AND Jogador.fkTimeF = idTimeF;
 
+-- Exibir os dados de um jogador, usando o nome, do seu conselheiro e do seu time
+SELECT * FROM Jogador, Jogador AS Conselheiro, TimeF WHERE Jogador.fkConselheiro = Conselheiro.idJogador AND Jogador.fkTimeF = idTimeF AND Jogador.nome = 'Roger Guedes';
 
--- 
-            
-SELECT * FROM Seguidor;
-            
-DROP DATABASE PraticaJogador;
+-- Exibindo os dados dos jogadores e dos seus seguidores
+SELECT * FROM Jogador, Seguidor WHERE idJogador = fkJogador;
+
+-- Exibindo os dados de apenas um jogador e de seus seguidores (selecionar pelo nome)
+SELECT * FROM Jogador, Seguidor WHERE idJogador = fkJogador AND Jogador.nome = 'Cássio';
+
+-- Excluindo 1 jogador
+DELETE FROM Jogador WHERE idJogador = 2;
+
+-- Excluindo as Tabelas
+DROP TABLE Seguidor;
+DROP TABLE Jogador;
+DROP TABLE TimeF;
