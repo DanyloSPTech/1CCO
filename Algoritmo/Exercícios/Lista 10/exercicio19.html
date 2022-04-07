@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 14 Lista 10 - OU</title>
+    </head>
+    <body>
+        <h1>Autenticação Banco Melete</h1>
+        <p>Informe seu login:</p>
+        <input id="inpLogin">
+        <p>Informe sua senha:</p>
+        <input id="inpSenha" type="password">
+        <p>Informe sua informação pessoal:</p>
+        <input id="inpInfEspecial" type="password">
+        <button onclick="autenticar()" id="btnLogin">Autenticar</button>
+        <p id="resultadoAutenticacao"></p>
+        <p id="txtTentativas"></p>
+    </body>
+</html>
+
+<script>
+
+    var tentativas = 3;
+
+    function autenticar(){
+
+        var login = inpLogin.value;
+        var senha = inpSenha.value;
+        var segredo = inpInfEspecial.value;
+
+        if(login == 'ana' && senha == 'braga' && (segredo == 1960 || segredo == 'louro josé')){
+            resultadoAutenticacao.innerHTML = "Usuário autenticado";
+            tentativas = 3;
+            txtTentativas.innerHTML = '';
+        }else {
+            if(tentativas > 1){
+                tentativas -= 1;
+                txtTentativas.innerHTML = `Você ainda tem ${tentativas} tentativa(s)`;
+            }else {
+                resultadoAutenticacao.innerHTML = 'Usuário BLOQUEADO! Procure seu gerente!';
+                txtTentativas.innerHTML = '';
+                btnLogin.style.display = 'none';
+            }
+        }
+
+    }
+
+</script>
