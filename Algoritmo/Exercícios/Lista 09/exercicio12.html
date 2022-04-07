@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12 - &&</title>
+</head>
+<body>
+    <h1>Sistema de Recarga Cartão Fidelidade - Metrô SP</h1>
+    <p>Quantas passagens você deseja adquirir?</p>
+    <input id="inpQtdePassagens">
+    <button onclick="comprar()">Comprar</button>
+    <p id="txtValorPagar"></p>
+</body>
+</html>
+
+<script>
+
+    function comprar(){
+
+        var qtdePassagens = Number(inpQtdePassagens.value);
+        var valorPassagem = 0;
+        var descontoPassagem = 0;
+
+        if(qtdePassagens >= 8 & qtdePassagens <= 50){
+            if(qtdePassagens <= 19){
+                descontoPassagem = ((4.40 * qtdePassagens) * 3) / 100;
+                valorPassagem = (4.40 * qtdePassagens) - descontoPassagem;
+            }else if(qtdePassagens <= 49){
+                descontoPassagem = ((4.40 * qtdePassagens) * 5) / 100;
+                valorPassagem = (4.40 * qtdePassagens) - descontoPassagem;
+            }else {
+                descontoPassagem = ((4.40 * qtdePassagens) * 7) / 100;
+                valorPassagem = (4.40 * qtdePassagens) - descontoPassagem;
+            }
+            txtValorPagar.innerHTML = `Total a pagar: R$ ${valorPassagem.toFixed(2)}`;
+        }else {
+            alert("Quantidade Inválida para o Fidelidade!");
+            txtValorPagar.innerHTML = '';
+        }
+
+    }
+
+</script>

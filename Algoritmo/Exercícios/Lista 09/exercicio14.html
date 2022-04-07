@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 14 - &&</title>
+    </head>
+    <body>
+        <div id="intervaloAlturaPilotos">
+            <p>Qual é a altura mínima desejada para os pilotos?</p>
+            <input id="inpAlturaMinExigPilotos">
+            <p>Qual é a altura máxima desejada para os pilotos?</p>
+            <input id="inpAlturaMaxExigPilotos">
+            <button onclick="analisarAlturaInfPiloto()">Prosseguir</button>
+        </div>
+       <div id="intervaloAlturaBasquete" style="display: none;">
+            <p>Qual é a altura mínima desejada para os jogadores de basquete?</p>
+            <input id="inpAlturaMinExigBasquete">
+            <p>Qual é a altura máxima desejada para os jogadores de basquete?</p>
+            <input id="inpAlturaMaxExigBasquete">
+            <button onclick="analisarAlturaInfBasquete()">Selecionar</button>
+       </div>
+       <div id="telaCadastroAtletas" style="display: none;">
+           <h1>Processo de Seleção de Novos Atletas</h1>
+           <h4>Critério de Seleção de Piloto - Altura entre <span id="spnAlturaMinPiloto"></span> até <span id="spnAlturaMaxPiloto"></span></h4>
+           <h4>Critério de Seleção de Piloto - Altura entre <span id="spnAlturaMinBasquete"></span> até <span id="spnAlturaMaxBasquete"></span></h4>
+           <br>
+           <br>
+           <br>
+           <br>
+           <p>Informe o Nome do Candidato:</p>
+           <input id="inpNomeCandidato">
+           <p>Informe a Altura do Candidato:</p>
+           <input id="inpAlturaCandidato">
+           <p>Modalidade do Candidato:</p>
+           <select id="slcModalidade">
+               <option value="0">- Selecione uma Modalidade -</option>
+               <option value="1">Piloto</option>
+               <option value="2">Jogador de Basquete</option>
+           </select>
+           <br>
+           <br>
+           <button onclick="cadastrar()">Cadastrar</button>
+           <p id="retornoCadastro"></p>
+       </div>
+    </body>
+</html>
+
+<script>
+
+    var alturaMinExigPiloto = 0;
+    var alturaMaxExigPiloto = 0;
+    var alturaMinExigBasquete = 0;
+    var alturaMaxExigBasquete = 0;
+
+    function analisarAlturaInfPiloto(){
+
+        alturaMinExigPiloto = Number(inpAlturaMinExigPilotos.value);
+        alturaMaxExigPiloto = Number(inpAlturaMaxExigPilotos.value);
+
+        if(alturaMinExigPiloto > 1 && alturaMaxExigPiloto > alturaMinExigPiloto){
+            intervaloAlturaPilotos.style.display = 'none';
+            intervaloAlturaBasquete.style.display = 'block';
+        }else {
+            alert("Valores informados inválidos!");
+            intervaloAlturaBasquete.style.display = 'none';
+        }
+    }
+
+    function analisarAlturaInfBasquete(){
+
+        alturaMinExigBasquete = Number(inpAlturaMinExigBasquete.value);
+        alturaMaxExigBasquete = Number(inpAlturaMaxExigBasquete.value);
+
+        if(alturaMinExigBasquete > 1.5 && alturaMaxExigBasquete > alturaMinExigBasquete){
+            spnAlturaMinPiloto.innerHTML = alturaMinExigPiloto;
+            spnAlturaMaxPiloto.innerHTML = alturaMaxExigPiloto;
+            spnAlturaMinBasquete.innerHTML = alturaMinExigBasquete;
+            spnAlturaMaxBasquete.innerHTML = alturaMaxExigBasquete;
+
+            intervaloAlturaBasquete.style.display = 'none';
+            telaCadastroAtletas.style.display = 'block';
+        }else {
+            alert("Valores informados inválidos!");
+            intervaloAlturaBasquete.style.display = 'none';
+            intervaloAlturaPilotos.style.display = 'block';
+        }
+
+    }
+
+    function cadastrar(){
+
+        var nomeCandidato = inpNomeCandidato.value;
+        var alturaCandidato = Number(inpAlturaCandidato.value);
+        var modalidadeCandidato = Number(slcModalidade.value);
+
+        if(modalidadeCandidato == 0){
+            retornoCadastro.innerHTML = 'Informe uma Modalidade!';
+        }else if(modalidadeCandidato == 1){
+            if(alturaCandidato >= alturaMinExigPiloto && alturaCandidato <= alturaMaxExigPiloto){
+                retornoCadastro.innerHTML = `O Candidato ${nomeCandidato} com altura de ${alturaCandidato.toFixed(2)} participará do processo de seleção de piloto`;
+            }else {
+                retornoCadastro.innerHTML = `Infelizmente o candidato ${nomeCandidato} com altura de ${alturaCandidato.toFixed(2)} não atende os requisitos`;
+            }
+        }else{
+            if(alturaCandidato >= alturaMinExigBasquete && alturaCandidato <= alturaMaxExigBasquete){
+                retornoCadastro.innerHTML = `O Candidato ${nomeCandidato} com altura de ${alturaCandidato.toFixed(2)} participará do processo de seleção de basquete`;
+            }else {
+                retornoCadastro.innerHTML = `Infelizmente o candidato ${nomeCandidato} com altura de ${alturaCandidato.toFixed(2)} não atende os requisitos`;
+            }
+        }
+
+    }
+
+</script>
