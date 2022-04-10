@@ -35,10 +35,35 @@ body{
     width: 70%;
     padding: 0;
     justify-items: end;
-    font-size: 15px;
+    font-size: 14px;
     margin: auto;
     margin-right: 0px;
     font-family: 'Poppins';
+}
+
+.navBar a{
+    margin: auto;
+    align-self: center;
+    align-items: center;
+}
+
+.navBar button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #000000;
+    color: #FFFFFF;
+    border: solid #FFFFFF 3px;
+    font-family: 'Poppins';
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBar li{
+    height: auto;
+    align-self: center;
 }
 
 .bannerCadastro{
