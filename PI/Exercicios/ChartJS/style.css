@@ -50,3 +50,7 @@ body{
 .destaque{
     font-weight: bold;
 }
+
+canvas{
+    margin: 10px;
+}
