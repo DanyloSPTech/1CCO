@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 02 - Boolean</title>
+    </head>
+    <body>
+        <h1>Análise de potencial para esportes</h1>
+        <p>Informe sua altura:</p>
+        <input id="inpAltura">
+        <button onclick="analisar()">Analisar para esportes</button>
+        <p id="txtPotencial"></p>
+    </body>
+</html>
+
+<script>
+
+    function analisar(){
+
+        txtPotencial.innerHTML = "";
+
+        var altura = Number(inpAltura.value);
+
+        var piloto = altura < 1.60;
+        var velejador = altura < 1.60;
+        var jogador = altura > 1.60 && altura <= 1.85;
+
+        if(piloto){
+            txtPotencial.innerHTML = "Pode tentar ser piloto(a) de corrida";
+        }
+        if(velejador){
+            txtPotencial.innerHTML += "<br> Pode tentar ser velejador(a)";
+        }
+        if(jogador){
+            txtPotencial.innerHTML += "<br> Pode tentar ser jogador de futebol ou handbol";
+        }
+
+    }
+
+</script>

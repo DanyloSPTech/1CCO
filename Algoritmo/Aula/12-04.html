@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arquivo de aula do dia 12-04</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Arquivo de aula do dia 12-04 - Boolean</title>
+    </head>
+    <body>
+        <h1>Fases da Vida</h1>
+        <p>Informe sua idade:</p>
+        <input id="inpIdade">
+        <button onclick="analisar()">Analisar</button>
+        <p id="txtRespostas"></p>
+        <p id="txtPontos"></p>
+    </body>
 </html>
+
+<script>
+
+    function analisar(){
+
+        txtRespostas.innerHTML = "";
+        txtPontos.innerHTML = "";
+
+        var pontos = 0;
+        var idade = Number(inpIdade.value);
+        var infancia = idade > 12;
+        var adolescencia = idade > 18;
+        var idoso = idade >= 65;
+
+        if(infancia){
+            pontos += 10;
+        }
+        if(adolescencia){
+            pontos += 20;
+        }
+        if(idoso){
+            pontos += 50;
+        }
+
+        txtRespostas.innerHTML += infancia + "<br>";
+        txtRespostas.innerHTML += adolescencia + "<br>";
+        txtRespostas.innerHTML += idoso + "<br>";
+        txtPontos.innerHTML = pontos;
+        
+    }
+
+</script>
