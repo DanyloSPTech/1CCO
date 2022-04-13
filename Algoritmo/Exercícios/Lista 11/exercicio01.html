@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 01 - Boolean</title>
+    </head>
+    <body>
+        <h1>Faça seu Login</h1>
+        <p>Informe seu login:</p>
+        <input id="inpLogin">
+        <p>Informe sua senha:</p>
+        <input id="inpSenha" type="password">
+        <button onclick="validar()">Entrar</button>
+        <p id="txtCampo1"></p>
+        <p id="txtCampo2"></p>
+    </body>
+</html>
+
+<script>
+
+    function validar(){
+
+        var login = inpLogin.value;
+        var senha = inpSenha.value;
+
+        var validaLogin = login == 'aidimin';
+        var validaSenha = senha == 'seinha';
+
+        if(validaLogin && validaSenha){
+            txtCampo1.innerHTML = "Usuário autenticado com sucesso!";
+            txtCampo1.style.color = 'blue';
+            txtCampo2.innerHTML = "";
+        }else{
+            if(validaSenha){
+                txtCampo1.innerHTML = "Login Inválido!";
+                txtCampo1.style.color = 'red';
+                txtCampo2.innerHTML = "";
+            }else if(validaLogin){
+                txtCampo1.innerHTML = "Senha Inválida!";
+                txtCampo1.style.color = 'red';
+                txtCampo2.innerHTML = "";
+                alert("Entre em contato com o suporte para recuperar sua senha");
+            }else{
+                txtCampo1.innerHTML = "Login Inválido!";
+                txtCampo1.style.color = 'red';
+                txtCampo2.innerHTML = "Senha Inválida!";
+                txtCampo2.style.color = 'red';
+            }
+        }
+
+    }
+
+</script>
