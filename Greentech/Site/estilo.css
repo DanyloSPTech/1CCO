@@ -4,6 +4,10 @@ body{
     margin: 0;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 /* Inicio Menu */
 
 .header{
@@ -49,6 +53,7 @@ body{
     align-items: center;
     text-decoration: none;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .navBar button{
@@ -175,6 +180,7 @@ body{
     font-weight: bold;
     font-size: 16px;
     margin-top: 50px;
+    cursor: pointer;
 }
 
 .logoFimPagina{
@@ -185,6 +191,62 @@ body{
 }
 
 /* Fim Tela Cadastro */
+
+/* Inicio da Tela de Login */
+
+.bannerLogin{
+    background-image: url("imagens/iStock-179766986.jpg");
+    /* background-repeat: no-repeat;
+    background-attachment: fixed; */
+    background-size: cover;
+    background-position: center;
+    justify-content: space-between;
+}
+
+.bannerLogin .container{
+    height: 80vh;
+}
+
+.cardLogin{
+    background-color: #FFFFFF;
+    display: flex;
+    border-radius: 10px;
+    width: 40%;
+    height: 500px;
+    margin-top: 80px;
+}
+
+.cardLogin h1{
+    font-family: 'Fira Sans';
+    font-size: 30px;
+    color: #464646;
+    margin-top: 50px;
+}
+
+.cardLogin input{
+    border: none;
+    border-bottom: solid #6b6b6b 1px;
+}
+
+.cardLogin button{
+    height: 40px;
+    width: 150px;
+    background-color: rgb(54, 92, 148);
+    color: #FFFFFF;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+.resetSenha{
+    text-align: end;
+    cursor: pointer;
+}
+
+/* Fim da Tela de login */
 
 /* Inicio Home */
 
@@ -222,7 +284,7 @@ body{
     flex-direction: column;
 }
 
-.visao h1{
+.tituloHome{
     font-family: 'PT Sans';
     color: #000000;
     font-size: 48px;
@@ -231,6 +293,15 @@ body{
     text-underline-offset: 30px;
     padding-bottom: 75px;
     font-weight: bold;
+    margin: auto;
+}
+
+.visao h1{
+    margin-top: 80px;
+}
+
+.contato h1{
+    margin-top: 80px;
 }
 
 .bloco{
@@ -272,6 +343,146 @@ body{
     margin-bottom: 10px;
 }
 
+.sobre{
+    margin-top: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+.sobreEsquerda{
+    display: flex;
+    width: 518px;
+    height: 770px;
+    background-image: url("imagens/markus-spiske-9cHVqn9bBpQ-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.sobreDireita{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+}
+
+
+
+.sobre h2{
+    font-family: 'PT Sans';
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.sobre p{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.contato{
+    display: flex;
+    flex-direction: column;
+}
+
+.contato .container{
+    flex-direction: column;
+}
+
+.blocoContato{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contatoEsquerda{
+    display: flex;
+    flex-direction: column;
+}
+
+.contatoDireita{
+    display: flex;
+    flex-direction: column;
+    border: solid #000000 3px;
+}
+
+.contato h2{
+    font-family: 'PT Sans';
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.contato h3{
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.depoimento{
+    margin-top: 80px;
+    display: flex;
+    background-color: #37693F;
+    padding-bottom: 50px;
+}
+
+.depoimento .container{
+    flex-direction: column;
+}
+
+.blocoCards{
+    display: flex;
+    flex-direction: row;
+}
+
+.cardDepoimento{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    width: 350px;
+    height: 450px;
+    margin: 25px;
+    padding: 15px;
+}
+
+.cardDepoimento img{
+    height: 130px;
+    width: 130px;
+    border-radius: 150px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.depoimento h1{
+    color: #FFFFFF;
+    text-decoration: underline #FFFFFF 5px;
+    margin-top: 50px;
+}
+
+.depoimento h4{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.cardDepoimento h2{
+    font-family: 'PT Sans';
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+}
+
+.cardDepoimento h3{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+}
+
 /* Fim Home */
 
 /* Inicio Rodapé */
@@ -280,6 +491,7 @@ body{
     height: 80px;
     background-color: #000000;
     display: flex;
+    margin-top: 150px;
 }
 
 .footer .container{
@@ -292,5 +504,6 @@ body{
     font-weight: 400;
     color: #FFFFFF;
 }
+
 
 /* Fim Rodapé */
