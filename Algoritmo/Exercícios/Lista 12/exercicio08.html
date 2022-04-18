@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 08 - Lista 12 | Manipulação Strings</title>
+    </head>
+    <body>
+        <h1>Fortalecendo Senhas</h1>
+        <p>Informe uma senha:</p>
+        <input id="inpSenha" onkeyup="fortalecerSenha()">
+        <p>Senha Fortalecida:</p>
+        <p id="txtRetorno"></p>
+        <p id="prova"></p>
+    </body>
+</html>
+
+<script>
+
+    function fortalecerSenha(){
+        var senha = inpSenha.value;
+        var senha2 = "";
+        var posicaoLetraA1 = senha.indexOf("a");
+        var posicaoLetraA2 = senha.indexOf("A");
+        var posicaoLetraE1 = senha.indexOf("e");
+        var posicaoLetraE2 = senha.indexOf("E");
+        var senhaAlterada = "";
+        var posicao = senha.length - 1;
+
+        if(posicaoLetraA1 == -1 && posicaoLetraA2 == -1){
+            senhaAlterada += senha[posicao];
+        }else{
+            senhaAlterada += "@";
+            senha2 += senhaAlterada;
+            senha2[posicao] = "@";
+        }
+
+        txtRetorno.innerHTML += senhaAlterada;
+        prova.innerHTML = senha2;
+    }
+
+</script>

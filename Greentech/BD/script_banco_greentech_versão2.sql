@@ -51,7 +51,7 @@ CREATE TABLE ControleTemperatura (
     idControleTemperatura INT NOT NULL,
     localizacao VARCHAR(45),
     FOREIGN KEY (fkEstufa) REFERENCES Estufa(idEstufa),
-    PRIMARY KEY (fkEstufa, idControleEstufa)
+    PRIMARY KEY (fkEstufa, idControleTemperatura)
 );
 
 -- Criando a tabela Endereco
@@ -95,5 +95,5 @@ CREATE TABLE Alerta (
     tipoAlerta VARCHAR (45) NOT NULL,
     fkMonitoramento INT NOT NULL,
     fkControle INT NOT NULL,
-    FOREIGN KEY (fkMonitoramento) REFERENCES Monitoramento(idMonitoramento) -- ???
+    FOREIGN KEY (fkMonitoramento) REFERENCES Monitoramento(fkEstufa, idMonitoramento) -- ???
 );
