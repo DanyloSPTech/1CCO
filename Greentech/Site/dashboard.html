@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="estilo.css" />
-    <title>Cadastro - Greentech</title>
+    <title>Dashboard - Greentech</title>
 </head>
 
 <body>
@@ -15,28 +15,62 @@
             <img src="imagens/logo ju_branco.png">
             <span class="barraDash"></span>
             <ul class="navBarDash">
-                <li>Tempo Real</li>
-                <li>Histórico</li>
+                <li>Dashboard</li>
+                <li>Alertas</li>
             </ul>
             <span class="barraDash"></span>
-            <h1>Olá, User!</h1>
+            <h1>Olá, Usuário!</h1>
             <button>Sair</button>
         </div>
         <div class="areaDash">
-            <div class="container">
-                <div class="areaGrafico">
-                    <div class="grafico">
-                        <!--
-                        <canvas id="graficoTemp" height="100px" width="100px"></canvas>
-                        -->
+            <div class="containerDash">
+                <div class="cardMetricas">
+                    <div class="caixaMetrica">
+                        <h3>Perigo</h3>
+                        <h4>10ºC</h4>
+                    </div>
+                    <div class="caixaMetrica">
+                        <h3>Alerta</h3>
+                        <h4>18ºC</h4>
+                    </div>
+                    <div class="caixaMetrica">
+                        <h3>Ideal</h3>
+                        <h4>22ºC</h4>
+                    </div>
+                    <div class="caixaMetrica">
+                        <h3>Alerta</h3>
+                        <h4>24ºC</h4>
+                    </div>
+                    <div class="caixaMetrica">
+                        <h3>Perigo</h3>
+                        <h4>28ºC</h4>
                     </div>
                 </div>
-                <div class="areaMetricas">
-                    <div class="metrica">1</div>
-                    <div class="metrica">2</div>
-                    <div class="metrica">3</div>
-                    <div class="metrica">4</div>
-                    <div class="metrica">5</div>
+                <div class="areaDados">
+                    <div class="cardGrafico">
+                        <div class="caixaBtnGrafico">
+                            <button onclick="exibirTemperatura()">
+                                Temperatura
+                            </button>
+                            <button onclick="exibirUmidade()">
+                                Umidade
+                            </button>
+                        </div>
+                        <canvas id="graficoTemp"></canvas>
+                        <canvas id="graficoUmid" style="display: none;"></canvas>
+                    </div>
+                    <div class="areaAtt">
+                        <div class="cardAtt">
+                            <h2>Temperatura</h2>
+                            <span class="barra"></span>
+                            <h3>25ºC</h3>
+                        </div>
+                        <div class="cardAtt">
+                            <h2>Umidade</h2>
+                            <span class="barra"></span>
+                            <h3>45%</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,35 +83,86 @@
 
 <script>
 
-  const labelsTemp = [
-    'Temperatura',
+  const labels = [
+    '21/04',
+    '22/04',
+    '23/04',
+    '24/04',
+    '25/04',
+    '26/04',
+    '27/04',
+    '28/04',
+    '29/04',
+    '30/04',
   ];
 
-  const dataTemp = {
-    labels: labelsTemp,
-    datasets: [{
-        label: 'Temperatura',
-        backgroundColor: [
-          '#e08b1a',
-          '#e6e6e6',
-        ],
-        data: [35, 40],
-    }]
+  const dataTemperatura = {
+      labels: labels,
+      datasets: [{
+          label: 'Temperatura',
+          backgroundColor: '#40F75F',
+          borderColor: '#30B846',
+          data: [25, 26, 29, 27, 23, 19, 17, 22, 27, 30],
+          fill: true,
+      }],
   };
 
-  const configTemp = {
-      type: 'doughnut',
-      data: dataTemp,
-      options: {
-        responsive: true,
-		maintainAspectRatio: true,
-		showScale: true,
-      }
+  const dataUmidade = {
+      labels: labels,
+      datasets: [{
+        label: 'Umidade',
+        backgroundColor: '#1F4FE0',
+        borderColor: '#0A2D94',
+        data: [77, 72, 65, 43, 55, 68, 82, 93, 77, 33],
+      }],
+  }
+
+  const configTemperatura = {
+    type: 'line',
+    data: dataTemperatura,
+    options: {
+        scales: {
+            y: {
+                responsive: true,
+                beginAtZero: true,
+                max: 40
+            }
+        }
+    }
+  };
+
+  const configUmidade = {
+    type: 'line',
+    data: dataUmidade,
+    options: {
+        scales: {
+            y: {
+                responsive: true,
+                beginAtZero: true,
+                max: 100
+            }
+        }
+    }
   };
 
   const graficoTemp = new Chart(
     document.getElementById('graficoTemp'),
-    configTemp
+    configTemperatura
   );
+
+  const graficoUmid = new Chart(
+    document.getElementById('graficoUmid'),
+    configUmidade
+  );
+
+  function exibirUmidade(){
+    graficoUmid.style.display = 'block';
+    graficoTemp.style.display = 'none';
+  }
+
+  function exibirTemperatura(){
+    graficoUmid.style.display = 'none';
+    graficoTemp.style.display = 'block';
+  }
 
 </script>

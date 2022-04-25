@@ -605,6 +605,7 @@ html{
 .paginaDash{
     display: flex;
     flex-direction: row;
+    background-color: #37693F;
 }
 
 .headerDash{
@@ -618,6 +619,9 @@ html{
     justify-content: space-around;
     margin: 0;
     padding: 0;
+    /* border-right: solid 2px #FFFFFF; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .navBarDash{
@@ -670,50 +674,138 @@ html{
     display: flex;
     width: 100%;
     justify-content: center;
-    background-color: #66eb83;
+    background-color: #37693F;
 }
 
-.areaDash .container{
+.containerDash{
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    width: 80%;
+    height: 100vh;
+    justify-content: space-evenly;
 }
 
-.areaGrafico{
+.cardMetricas{
     display: flex;
     flex-direction: row;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    /*width: 90vw;*/
-}
-
-.areaMetricas{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #FFFFFF;
-    border-radius: 15px;
-}
-
-.grafico{
-    width: 100%;
-    height: 500px;
-}
-
-.grafico canvas{
-    height: 150px;
-    width: 150px;
-}
-
-.metrica{
-    width: 100px;
-    height: 100px;
-    background-color: #c68357;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    /*background-color: #e6e6e6;*/
+    width: 100%;
+    height: 20vh;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.areaDados{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 75vh;
+    justify-content: space-between;
+}
+
+.cardGrafico{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 68%;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.areaAtt{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+    justify-content: space-between;
+}
+
+.cardAtt{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    width: 100%;
+    height: 48%;
+}
+
+.cardAtt h2{
+    margin-left: 30px;
+    font-family: 'PT Sans';
+    margin-bottom: 5px;
+    font-size: 36px;
+    font-weight: 600;
+    color: #70b17b;
+}
+
+.cardAtt h3{
+    margin-left: 30px;
+    font-family: 'Poppins';
+    font-size: 42px;
+    font-weight: 600;
+    color: #70b17b;
+}
+
+.barra{
+    height: 6px;
+    width: 40%;
+    background-color: #70b17b;
+    margin-left: 30px;
+}
+
+.caixaMetrica{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+    width: 140px;
+    background-color: #70b17b;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.caixaMetrica h2{
+    margin: 0;
+}
+
+.caixaMetrica h3{
+    margin: 0;
+    font-family: 'PT Sans';
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.caixaMetrica h4{
+    margin: 0;
+    font-family: 'PT Sans';
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#graficoTemp{
+    margin: 15px;
+}
+
+.caixaBtnGrafico{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.caixaBtnGrafico button {
+    padding: 10px;
+    border: solid #317c3c 3px;
+    background-color: #317c3c;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-family: 'Poppins';
+    border-radius: 10px;
 }
 
 /* Fim Dashboard */
