@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícicio 01 Lista 13 | Resto de Divisão</title>
+</head>
+<body>
+    <h1>Divisivel ou não? Edição: Número 7</h1>
+    <p>Informe um número:</p>
+    <input id="inpNumero">
+    <button onclick="testar()">É divisivel por 7?</button>
+</body>
+</html>
+
+<script>
+
+    function testar(){
+
+        var num = Number(inpNumero.value);
+        var teste = num % 7 == 0;
+        if(teste){
+            alert("Sim, é");
+        }else{
+            alert("Não, não é");
+        }
+
+    }
+
+</script>

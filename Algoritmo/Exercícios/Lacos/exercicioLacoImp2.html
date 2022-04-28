@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício Laço de Repetição 02 - While</title>
+    </head>
+    <body>
+       <h1>Faça o seu laço!</h1>
+       <h3>Escolha um número e iremos imprimir aqueles que ficam entre ele e o número 5! <b>Atenção:</b> Insira um valor maior que 5</h3>
+       <p>Informe o número:</p>
+       <input id="inpNumero">
+       <button onclick="imprimir()">Imprimir</button>
+       <p id="txtResposta"></p> 
+    </body>
+</html>
+
+<script>
+
+    function imprimir(){
+        txtResposta.innerHTML = "";
+        var numUser = Number(inpNumero.value);
+        if(numUser <= 5){
+            alert("Insira um valor válido!");
+        }else{
+            var i = 5;
+            while(i <= numUser){
+                txtResposta.innerHTML += i+"<br>";
+                i++;
+            }
+        }
+    }
+
+</script>
