@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercícicio 02 - Lista 13 | Resto da Divisão</title>
+    </head>
+    <body>
+       <h1>Banco 24 Horas</h1>
+       <p><u><b>ATENÇÃO:</b></u> Apenas é possível sacar cédulas de R$ 10.00, R$ 50.00 e R$ 100.00</p>
+       <p>Informe o valor que deseja sacar:</p>
+       <input id="inpSaque">
+       <button onclick="sacar()">Solicitar Saque</button> 
+    </body>
+</html>
+
+<script>
+
+    var saldoMaquina = 1000;
+
+    function sacar(){
+
+        var valorUser = Number(inpSaque.value);
+
+        if(valorUser > 0){
+            var testeSaque = valorUser % 10 == 0;
+            if(testeSaque){
+                var testeSaldo = saldoMaquina - valorUser >= 0;
+                if(testeSaldo){
+                    saldoMaquina -= valorUser;
+                    alert("Retire o dinheiro no local indicado");
+                }else{
+                    alert("Valor solicitado maior que o disponível na máquina");
+                }
+            }else{
+                alert("Valor não possível devido às notas disponíveis");
+            }
+        }else{
+            alert("Não é possível sacar 0 ou menos, dãaaa!");
+        }
+
+    }
+
+</script>
