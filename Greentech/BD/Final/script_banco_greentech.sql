@@ -3,19 +3,12 @@ use Greentech;
 
 
 -- CRIANDO TABELA 1 EMPRESA --
-
   create table Empresa
 	(
     idEmpresa int primary key auto_increment,
     nomeEmpresa varchar (100),
     CNPJ char (14)
 	)auto_increment=500;
-    
-insert into empresa (nomeEmpresa, CNPJ)
-	values ('Tomates do Sul', '30553079000149');
-    
-insert into usuario (nome, email, senha, telefone, fkEmpresa)
-	values ('Douglas Adão', 'zezinho@gmail.com', '123', '94535-6233', (select max(idEmpresa) FROM empresa));
     
 -- CRIANDO TABELA 2 USUARIO --
 create table Usuario 
@@ -71,10 +64,11 @@ create table MonitoramentoSensor
     
     
 -- CRIANDO TABELA DE ALERTAS QUE SERÃO MOSTRADOS NA DASHBOARD --
-create table Alerta (
-idAlerta int primary key,
-fkMonitoramento int,
-fkSensor int,
-foreign key (fkSensor, fkMonitoramento) references MonitoramentoSensor(fkSensor, idMonitoramento),
-tipoAlerta varchar (45)
-)auto_increment = 600;
+create table Alerta 
+	(
+	idAlerta int primary key,
+	fkMonitoramento int,
+	fkSensor int,
+	foreign key (fkSensor, fkMonitoramento) references MonitoramentoSensor(fkSensor, idMonitoramento),
+	tipoAlerta varchar (45)
+	)auto_increment = 600;
