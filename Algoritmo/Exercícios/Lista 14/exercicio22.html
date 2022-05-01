@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 22 - Lista 14 | Laço While</title>
+    </head>
+    <body>
+        <h1>Multiplos</h1>
+        <button onclick="listar()">Curto 3 e 5!</button>
+        <p id="txtRetorno"></p>
+    </body>
+</html>
+
+<script>
+
+    function listar(){
+        var i = 0;
+        while(i <= 100){
+            if(i == 0){
+                txtRetorno.innerHTML += i + "<br>";
+            }else if(i % 3 == 0){
+                if(i % 5 == 0){
+                    txtRetorno.innerHTML += "É TRI! É PENTA! <br>";
+                }else{
+                    txtRetorno.innerHTML += "É TRI! <br>";
+                }
+            }else if(i % 5 == 0){
+                txtRetorno.innerHTML += "É PENTA! <br>";
+            }else{
+                txtRetorno.innerHTML += i + "<br>";
+            }
+            i++;
+        }
+    }
+
+</script>

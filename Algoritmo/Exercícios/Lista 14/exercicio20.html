@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 20 - Lista 14 | Laço While</title>
+    </head>
+    <body>
+        <h1>Caminho pra faculdade</h1>
+        <p>Informe a quantidade de ônibus que você precisa pegar para chegar na SPTech:</p>
+        <input id="inpOnibus">
+        <p>Informe a quantidade de trens que você precisa pegar para chegar na SPTech:</p>
+        <input id="inpTrem">
+        <p>Informe a quantidade de metrôs que você precisa pegar para chegar na SPTech:</p>
+        <input id="inpMetro">
+        <button onclick="viagem()">#Partiu Trajeto</button>
+        <p id="txtRetorno"></p>
+    </body>
+</html>
+
+<script>
+
+    function viagem(){
+        var qtdeOnibus = Number(inpOnibus.value);
+        var qtdeTrens = Number(inpTrem.value);
+        var qtdeMetros = Number(inpMetro.value);
+
+        var i = 1;
+
+        while(i <= qtdeOnibus){
+            txtRetorno.innerHTML += `<span style='color: red'>Pegando o ${i}º buzão</span><br>`;
+            i++;
+        }
+
+        i = 1;
+
+        while(i <= qtdeTrens){
+            txtRetorno.innerHTML += `<span style='color: green'>Pegando o ${i}º trem</span><br>`;
+            i++;
+        }
+        
+        i = 1;
+
+        while(i <= qtdeMetros){
+            txtRetorno.innerHTML += `<span style='color: blue'>Pegando o ${i}º metrô</span><br>`;
+            i++;
+        }
+    }
+
+</script>
