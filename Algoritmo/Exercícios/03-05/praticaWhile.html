@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício para praticar laço de repetição While</title>
+    </head>
+    <body>
+       <h1>Calculadora de Divisiveis do Benedito</h1>
+       <p>Informe o 1º número do intervalo desejado:</p>
+       <input id="inpNum1">
+       <p>Informe o 2º número do intervalo desejado:</p>
+       <input id="inpNum2">
+       <button onclick="analisar()">Analisar</button>
+       <p id="txtRetorno"></p>
+    </body>
+</html>
+
+<script>
+
+    function analisar(){
+
+        txtRetorno.innerHTML = "";
+
+        var numMenor = Number(inpNum1.value);
+        var numMaior = Number(inpNum2.value);
+
+        var i = 0;
+        var divPrimo = 0;
+        var qtdeLacos = 0;
+
+        if(numMenor <= 0){
+            txtRetorno.innerHTML = "O 1º Número do intervalo deve ser maior que 0!";
+        }else if(numMaior <= numMenor){
+            txtRetorno.innerHTML = "O 2º Número do intervalo deve ser maior que o 1º!";
+        }else{
+            i = numMenor;
+            while(i <= numMaior){
+                var condDiv = false;
+                if(i % 2 == 0 || i % 3 == 0 || i % 5 == 0  || i % 7 == 0 || i % 11 == 0 || i % 13 == 0){
+                    condDiv = true;
+                    if(i % 2 == 0){
+                        txtRetorno.innerHTML += ` O Número ${i} é divisivel por 2. |`;
+                    }
+                    if(i % 3 == 0){
+                        txtRetorno.innerHTML += ` O Número ${i} é divisivel por 3. |`;
+                    }
+                    if(i % 5 == 0){
+                        txtRetorno.innerHTML += ` O Número ${i} é divisivel por 5. |`;
+                    }
+                    if(i % 7 == 0){
+                        txtRetorno.innerHTML += ` O Número ${i} é divisivel por 7. |`;
+                    }
+                    if(i % 11 == 0){
+                        txtRetorno.innerHTML += ` O Número ${i} é divisivel por 11. |`;
+                    }
+                    if(i % 13 == 0){
+                        txtRetorno.innerHTML += ` O Número ${i} é divisivel por 13. |`;
+                    }
+                }else{
+                    txtRetorno.innerHTML += `O Número ${i} não é divisível pelos principais números primos.`;
+                }
+                if(condDiv){
+                    divPrimo++;
+                }
+                txtRetorno.innerHTML += "<br><br>";
+                qtdeLacos++;
+                i++;
+            }
+            txtRetorno.innerHTML += `O intervalo de ${numMenor} a ${numMaior} tem ${qtdeLacos} números, sendo que ${divPrimo} números são divisíveis por algum número primo.`;
+        }
+        
+    }
+
+</script>
