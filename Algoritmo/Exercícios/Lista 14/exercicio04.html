@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 04 - Lista 14 | Laço For</title>
+    </head>
+    <body>
+       <button onclick="returnPar()">S2 Pares</button>
+       <p id="txtRetorno"></p>
+    </body>
+</html>
+
+<script>
+
+    function returnPar(){
+        txtRetorno.innerHTML = '';
+        for(var i = 0; i <= 100; i++){
+            if(i % 2 == 0){
+                txtRetorno.innerHTML += `${i}<br>`;
+            }
+        }
+    }
+
+</script>

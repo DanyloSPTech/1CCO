@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 23 - Lista 15 | Laço For</title>
+    </head>
+    <body>
+        <h1>1 Elefante incomoda muita gente...</h1>
+        <p>Informe a Quantidade de Elefantes:</p>
+        <input id="inpElefantes">
+        <button onclick="elefantes()">Atazanar a médium</button>
+        <p id="txtRetorno"></p>
+    </body>
+</html>
+
+<script>
+
+    function elefantes(){
+        txtRetorno.innerHTML = '';
+        var qtdeElefantes = Number(inpElefantes.value);
+        for(i = 2; i <= qtdeElefantes; i++){
+            txtRetorno.innerHTML += '1 Elefante incomoda muita gente! <br>';
+            txtRetorno.innerHTML += `${i} Elefantes `;
+            for(j = 1; j <= i; j++){
+                txtRetorno.innerHTML += 'incomodam, ';
+            }
+            txtRetorno.innerHTML += 'muito mais! <br>';
+        }
+    }
+
+</script>

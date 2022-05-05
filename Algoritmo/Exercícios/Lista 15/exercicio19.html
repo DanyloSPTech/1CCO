@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 19 - Lista 15 | Laço For</title>
+  </head>
+  <body>
+    <h1>Life</h1>
+    <p>Informe sua idade:</p>
+    <input id="inpIdade" onchange="descrever()" />
+    <p id="txtRetorno"></p>
+  </body>
+</html>
+
+<script>
+  function descrever() {
+    var idade = Number(inpIdade.value);
+
+    txtRetorno.innerHTML = "";
+
+    for (j = 0; j <= 4 && j <= idade; j++) {
+      txtRetorno.innerHTML += `${j} Anos (Primeira Infância) <br>`;
+    }
+    for (j = 5; j <= 6 && j <= idade; j++) {
+      txtRetorno.innerHTML += `${j} Anos (Pré-escolar) <br>`;
+    }
+    for (j = 7; j <= 10 && j <= idade; j++) {
+      txtRetorno.innerHTML += `${j} Anos (Segunda Infância) <br>`;
+    }
+    for (j = 11; j <= 18 && j <= idade; j++) {
+      txtRetorno.innerHTML += `${j} Anos (Adolescência) <br>`;
+    }
+    for (j = 19; j <= 50 && j <= idade; j++) {
+      txtRetorno.innerHTML += `${j} Anos (Adulto) <br>`;
+    }
+    for (j = 51; j <= 100 && j <= idade; j++) {
+      txtRetorno.innerHTML += `${j} Anos (Melhor Idade) <br>`;
+    }
+    for (j = 100; j <= idade; j++) {
+      txtRetorno.innerHTML += `${j} Anos (Matusalém) <br>`;
+    }
+  }
+</script>
