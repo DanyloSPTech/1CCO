@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 15 - Lista 15 | Laço For</title>
+    </head>
+    <body>
+        <h1>Banco</h1>
+        <p>Informe quantos depósitos você fez:</p>
+        <input id="inpDepositos">
+        <p>Informe o valor de cada depósito:</p>
+        <input id="inpValor">
+        <button onclick="calcular()">Acompanhar Grana</button>
+        <p id="txtRetorno"></p>
+    </body>
+</html>
+
+<script>
+
+    function calcular(){
+
+        var depositos = Number(inpDepositos.value);
+        var valor = Number(inpValor.value);
+
+        var total = 0;
+
+        for(var i = 1; i <= depositos; i++){
+            total += valor;
+            if(i % 3 == 0){
+                total = total + ((total * 1) / 100);
+            }
+            txtRetorno.innerHTML += `${i}º Mês: R$ ${total.toFixed(2)} <br>`;
+        }
+        txtRetorno.innerHTML += `Total Guardado: R$ ${total.toFixed(2)}`;
+
+    }
+
+</script>
