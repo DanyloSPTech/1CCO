@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício para aula Algoritmo 10/05 - For</title>
+    </head>
+    <body>
+        <h1>Divisiveis de um Intervalo</h1>
+        <p>Informe o limite inferior da amostragem:</p>
+        <input id="inpInferior">
+        <p>Informe o limite superior da amostragem:</p>
+        <input id="inpSuperior">
+        <p>Informe o número para testar a divisibilidade:</p>
+        <input id="inpDiv">
+        <button onclick="testar()">Contar</button>
+        <p id="txtRetorno"></p>
+    </body>
+</html>
+
+<script>
+
+    function testar(){
+
+        txtRetorno.innerHTML = '';
+
+        var numInferior = Number(inpInferior.value);
+        var numSuperior = Number(inpSuperior.value);
+        var divisor = Number(inpDiv.value);
+
+        var testeSeguir = true;
+
+        if(numInferior <= 1){
+            alert("Erro: Número inferior deve ser maior que 1");
+            testeSeguir = false;
+        }
+        if(numSuperior >= 100){
+            alert("Erro: Número superior deve ser menor que 100");
+            testeSeguir = false;
+        }
+        if(divisor < 3 || divisor > 10){
+            alert("Erro: Divisor deve estar no intervalo entre 3 e 10");
+            testeSeguir = false;
+        }
+        if(numSuperior <= numInferior){
+            alert("Erro: Número superior deve ser maior que o número inferior");
+            testeSeguir = false;
+        }
+
+        if(testeSeguir){
+
+            var qtdeDivisivel = 0;
+            var somaDivisivel = 0;
+            var menorNum = numSuperior + 1;
+            var maiorNum = numInferior - 1;
+
+            for(var i = numInferior; i <= numSuperior; i++){
+                if(i % divisor == 0){
+                    qtdeDivisivel++;
+                    somaDivisivel += i;
+                    if(i < menorNum){
+                        menorNum = i;
+                    }
+                    if(i > maiorNum){
+                        maiorNum = i;
+                    }
+                    txtRetorno.innerHTML += `${i} <br>`;
+                }
+            }
+            if(menorNum > numSuperior){
+                menorNum = 'Inexistente';
+            }
+            if(maiorNum < numInferior){
+                maiorNum = 'Inexistente';
+            }
+
+            if(somaDivisivel == 0 && qtdeDivisivel == 0){
+                media = 0;
+            }else{
+                media = somaDivisivel / qtdeDivisivel;
+            }
+            txtRetorno.innerHTML += `<br> <br>`;
+            txtRetorno.innerHTML += `QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${qtdeDivisivel} <br>`;
+            txtRetorno.innerHTML += `SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${somaDivisivel} <br>`;
+            txtRetorno.innerHTML += `MÉDIA DOS NÚMEROS EXIBIDOS: ${media.toFixed(2)} <br>`;
+            txtRetorno.innerHTML += `MAIOR NÚMERO EXIBIDO: ${maiorNum} <br>`;
+            txtRetorno.innerHTML += `MENOR NÚMERO EXIBIDO: ${menorNum} <br>`;
+        }
+
+    }
+
+</script>
