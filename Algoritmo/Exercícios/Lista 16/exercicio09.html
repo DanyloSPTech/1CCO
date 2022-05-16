@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 09 - Lista 16 | Vetor</title>
+    </head>
+    <body>
+        <h1>Criando Portfólio</h1>
+        <p>Informe um novo projeto em que você trabalhou:</p>
+        <input id="inpProjeto">
+        <button onclick="registrar()">Registrar Projeto</button>
+        <button onclick="listar()">Mostrar Projetos</button>
+        <p id="txtRetorno"></p>
+    </body>
+</html>
+
+<script>
+
+    var projetos = [];
+
+    function registrar(){
+        var projeto = inpProjeto.value;
+        if(projeto == ''){
+            alert("Por favor insira um valor válido ao campo de projeto!");
+        }else{
+            projetos.push(projeto);
+            var qtdeProjetos = projetos.length;
+            var nivel = 'Inválido!';
+            if(qtdeProjetos >= 0 && qtdeProjetos <= 4){
+                nivel = 'Júnior';
+            }else if(qtdeProjetos > 4 && qtdeProjetos <= 12){
+                nivel = `Pleno desde o projeto ${projetos[4]}`;
+            }else{
+                nivel = `Sênior desde o projeto ${projetos[12]}`;
+            }
+            txtRetorno.innerHTML = `Você já fez ${qtdeProjetos} projetos. Por isso você é um profissional ${nivel}`;
+        }
+
+        inpProjeto.value = '';
+    }
+
+    function listar(){
+        txtRetorno.innerHTML += `<br><br>`;
+        for(var i = projetos.length; i > 0; i--){
+            txtRetorno.innerHTML += `${projetos[i - 1]} <br>`;
+        }
+    }
+
+</script>
