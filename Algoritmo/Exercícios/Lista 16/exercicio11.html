@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 11 - Lista 16 | Vetor</title>
+    </head>
+    <body>
+        <h1>Controle de Estoque</h1>
+        <p>Informe o preço do produto:</p>
+        <input id="inpPreco">
+        <button onclick="cadastrar()">Cadastrar</button>
+        <button onclick="exibir()">Atualizar Estoque</button>
+        <p id="txtRetorno"></p>
+    </body>
+</html>
+
+<script>
+
+    var produtos = [];
+
+    function cadastrar(){
+        var preco = Number(inpPreco.value);
+        produtos.push(Number(preco));
+        inpPreco.value = '';
+    }
+
+    function exibir(){
+        var valor = 0;
+        for(var i = 0; i < produtos.length; i++){
+            valor += produtos[i]; 
+        }
+        txtRetorno.innerHTML = `Você tem ${produtos.length} produtos cadastrados em estoque`;
+        txtRetorno.innerHTML += `<br> Seu estoque vale R$${valor.toFixed(2)}`;
+    }
+
+</script>

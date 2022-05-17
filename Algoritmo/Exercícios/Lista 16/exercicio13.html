@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 13 - Lista 16 | Vetor</title>
+    </head>
+    <body>
+        <h1>Campeonato Antwerp</h1>
+        <select id="slcResultado">
+            <option value="6">-- Indique o resultado --</option>
+            <option value="3">Vitória</option>
+            <option value="1">Empate</option>
+            <option value="0">Derrota</option>
+        </select>
+        <button onclick="registrar()">Registrar Jogo</button>
+        <p id="txtRetorno"></p>
+    </body>
+</html>
+
+<script>
+
+    var jogos = [];
+
+    function registrar(){
+        var resultado = Number(slcResultado.value);
+        if(resultado == 6){
+            alert("Por favor informe um resultado de jogo válido!");
+        }else{
+            jogos.push(Number(resultado));
+            var qtdeJogos = jogos.length;
+            var pontos = 0;
+            var vitorias = 0;
+            var empates = 0;
+            var derrotas = 0;
+            for(var i = 0; i < qtdeJogos; i++){
+                pontos += jogos[i];
+                if(jogos[i] == 3){
+                    vitorias += 1;
+                }else if(jogos[i] == 1){
+                    empates += 1;
+                }else{
+                    derrotas += 1;
+                }
+            }
+            var aproveitamento = (pontos / (qtdeJogos * 3)) * 100;
+            txtRetorno.innerHTML = `O time teve: ${vitorias} vitórias, ${empates} empates, ${derrotas} derrotas <br>`;
+            txtRetorno.innerHTML += `Pontuação Total: ${pontos} pontos <br>`;
+            txtRetorno.innerHTML += `Aproveitameno: ${aproveitamento.toFixed(2)}%`;
+            
+        }
+    }
+
+</script>
+
