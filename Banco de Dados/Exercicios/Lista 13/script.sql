@@ -152,3 +152,72 @@ SELECT * FROM Funcionario ORDER BY nomeFunc;
 
 -- 16-) Exibir os dados dos funcionários ordenados pelo salário de forma decrescente
 SELECT * FROM Funcionario ORDER BY salario DESC;
+
+-- 17-) Exibir os dados dos funcionários que tenham salario entre 2000 e 4000
+SELECT * FROM Funcionario WHERE salario >= 2000 AND salario <= 4000;
+
+-- 18-) Exibindo os nomes e os salários dos funcionários cujo o nome começam com J
+SELECT nomeFunc, salario FROM Funcionario WHERE nomeFunc LIKE 'J%';
+
+-- 19-) Exibindo os nomes e os salários dos funcionários cujo o nome terminam com a letra a
+SELECT nomeFunc, salario FROM Funcionario WHERE nomeFunc LIKE '%a';
+
+-- 20-) Exibir o nome dos funcionários cujo a terceira letra do nome seja N
+SELECT nomeFunc FROM Funcionario WHERE nomeFunc LIKE '__N%';
+
+-- 21-) Exibindo os nomes e as datas de nascimento dos funcionários cujos nomes tenham a letra S como a 5 letra de tras pra frente
+SELECT nomeFunc, dataNasc FROM Funcionario WHERE nomeFunc LIKE '%S____';
+
+-- 22-) Exibindo os dados dos funcionarios que trabalham no departamento de pesquisa
+SELECT * FROM Funcionario WHERE fkDepto = 105;
+
+-- 23-) Exibindo os dados dos funcionários que trabalham no departamento de pesquisa e que tenham salário acima de 3500
+SELECT * FROM Funcionario WHERE fkDepto = 105 AND salario > 3500;
+
+-- 24-) Exibindo os dados dos funcionários que trabalham no departamento de pesquisa e que tenham o nome inicial com J
+SELECT * FROM Funcionario WHERE fkDepto = 105 AND nomeFunc LIKE 'J%';
+
+-- 25-) Exibindo o idFunc e nome dos funcionarios com o idFunc e nome dos supervisores correspondentes
+SELECT Funcionario.idFunc, Funcionario.nomeFunc, Supervisor.idFunc AS idSupervisor, Supervisor.nomeFunc AS nomeSupervisor FROM Funcionario, Funcionario AS Supervisor WHERE Supervisor.idFunc = Funcionario.fkSupervisor;
+
+-- 26-) Exibir para cada projeto localizado em São Paulo, o idProj do projeto, o número do departamento que o controla, o nome e a data de nascimento do gerente do departamento
+SELECT idProj, Projeto.fkDepto, nomeFunc, dataNasc FROM Projeto, Departamento, Funcionario, FuncProj WHERE FuncProj.fkProj = Projeto.idProj AND FuncProj.fkFunc = Funcionario.idFunc AND Departamento.idDepto = Projeto.fkDepto AND Departamento.fkGerente = Funcionario.idFunc AND Projeto.localProj = 'São Paulo';
+
+-- 27-) Exibir o idFunc e o nome do funcionário, o projeto e o nome do projeto em que trabalha, e a quantidade de horas que trabalha nesse projeto.
+SELECT idFunc, nomeFunc, idProj, nomeProj, horas FROM Projeto, Funcionario, FuncProj WHERE idFunc = FuncProj.fkFunc AND idProj = FuncProj.fkProj;
+
+-- 28-) Exibir os nomes dos funcionários que nasceram antes de 1980
+SELECT nomeFunc FROM Funcionario WHERE dataNasc < '1980-01-01';
+
+-- 29-) Exibir a quantidade de salários diferentes que existem na empresa
+SELECT COUNT(DISTINCT salario) AS 'Qtde Salários Diferentes' FROM Funcionario;
+
+-- 30-) Exibir a quantidade de locais diferentes de projeto
+SELECT COUNT(DISTINCT localProj) AS 'Qtde Locais Diferentes' FROM Projeto;
+
+-- 31-) Exibir o salário médio da empresa e a soma dos salários
+SELECT AVG(salario) AS 'Média dos Salários', SUM(salario) AS 'Soma dos Salários' FROM Funcionario;
+
+-- 32-) Exibir o menor e o maior salário da empresa
+SELECT MAX(salario) AS 'Maior Salário', MIN(salario) AS 'Menor Salário' FROM Funcionario;
+
+-- 33-) Exibir o idDepto, o salário médio e a soma do salário de cada departamento (agrupado por departamento)
+SELECT idDepto, AVG(salario) AS 'Salário Médio', SUM(salario) AS 'Soma dos Salários' FROM Departamento, Funcionario WHERE fkDepto = idDepto GROUP BY idDepto;
+
+-- 34-) Exibir o idDepto, o menor e o maior salário de cada departamento (agrupado por departamento)
+SELECT idDepto, MIN(salario) AS 'Menor Salário', MAX(salario) AS 'Maior Salário' FROM Departamento, Funcionario WHERE fkDepto = idDepto GROUP BY idDepto;
+
+-- 35-) Inserindo funcionarios exigidos na questão
+INSERT INTO Funcionario (idFunc, nomeFunc, salario, sexo, fkSupervisor, dataNasc, fkDepto)
+	VALUES (10, 'José da Silva', 1800, 'm', 3, '2000-10-12', NULL),
+			(11, 'Benedito Almeida', 1200, 'm', 5, '2001-09-01', NULL);
+            
+-- 36-) Inserindo departamento exigido na questão
+INSERT INTO Departamento (idDepto, nomeDepto, fkGerente, dataInicioGer)
+	VALUES (110, 'RH', 3, '2018-11-10');
+    
+-- 37-) Exibir os funcionários e seus departamentos correspondentes, inclusive os que não estão alocados em nenhum departamento
+SELECT * FROM Funcionario LEFT JOIN Departamento ON fkDepto = idDepto;
+
+-- 38-) Exibir os funcionários e seus departamentos correspondentes, inclusive os departamentos que não tem funcionários alocados
+SELECT * FROM Funcionario RIGHT JOIN Departamento ON fkDepto = idDepto;
