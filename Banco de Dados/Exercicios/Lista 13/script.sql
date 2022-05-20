@@ -178,10 +178,13 @@ SELECT * FROM Funcionario WHERE fkDepto = 105 AND salario > 3500;
 SELECT * FROM Funcionario WHERE fkDepto = 105 AND nomeFunc LIKE 'J%';
 
 -- 25-) Exibindo o idFunc e nome dos funcionarios com o idFunc e nome dos supervisores correspondentes
-SELECT Funcionario.idFunc, Funcionario.nomeFunc, Supervisor.idFunc AS idSupervisor, Supervisor.nomeFunc AS nomeSupervisor FROM Funcionario, Funcionario AS Supervisor WHERE Supervisor.idFunc = Funcionario.fkSupervisor;
+SELECT Funcionario.idFunc, Funcionario.nomeFunc, Supervisor.idFunc AS idSupervisor, Supervisor.nomeFunc AS nomeSupervisor FROM 
+Funcionario, Funcionario AS Supervisor WHERE Supervisor.idFunc = Funcionario.fkSupervisor;
 
 -- 26-) Exibir para cada projeto localizado em São Paulo, o idProj do projeto, o número do departamento que o controla, o nome e a data de nascimento do gerente do departamento
-SELECT idProj, Projeto.fkDepto, nomeFunc, dataNasc FROM Projeto, Departamento, Funcionario, FuncProj WHERE FuncProj.fkProj = Projeto.idProj AND FuncProj.fkFunc = Funcionario.idFunc AND Departamento.idDepto = Projeto.fkDepto AND Departamento.fkGerente = Funcionario.idFunc AND Projeto.localProj = 'São Paulo';
+SELECT idProj, Projeto.fkDepto, nomeFunc, dataNasc FROM Projeto, Departamento, Funcionario, FuncProj WHERE FuncProj.fkProj = Projeto.idProj 
+AND FuncProj.fkFunc = Funcionario.idFunc AND Departamento.idDepto = Projeto.fkDepto AND Departamento.fkGerente = Funcionario.idFunc 
+AND Projeto.localProj = 'São Paulo';
 
 -- 27-) Exibir o idFunc e o nome do funcionário, o projeto e o nome do projeto em que trabalha, e a quantidade de horas que trabalha nesse projeto.
 SELECT idFunc, nomeFunc, idProj, nomeProj, horas FROM Projeto, Funcionario, FuncProj WHERE idFunc = FuncProj.fkFunc AND idProj = FuncProj.fkProj;
@@ -193,7 +196,7 @@ SELECT nomeFunc FROM Funcionario WHERE dataNasc < '1980-01-01';
 SELECT COUNT(DISTINCT salario) AS 'Qtde Salários Diferentes' FROM Funcionario;
 
 -- 30-) Exibir a quantidade de locais diferentes de projeto
-SELECT COUNT(DISTINCT localProj) AS 'Qtde Locais Diferentes' FROM Projeto;
+	SELECT COUNT(DISTINCT localProj) AS 'Qtde Locais Diferentes' FROM Projeto;
 
 -- 31-) Exibir o salário médio da empresa e a soma dos salários
 SELECT AVG(salario) AS 'Média dos Salários', SUM(salario) AS 'Soma dos Salários' FROM Funcionario;
@@ -221,3 +224,13 @@ SELECT * FROM Funcionario LEFT JOIN Departamento ON fkDepto = idDepto;
 
 -- 38-) Exibir os funcionários e seus departamentos correspondentes, inclusive os departamentos que não tem funcionários alocados
 SELECT * FROM Funcionario RIGHT JOIN Departamento ON fkDepto = idDepto;
+
+-- EXERCICIOS COMPLEMENTARES PEDIDOS EM AULA
+
+-- 39) ?
+
+-- 40-) Exibir os nomes dos funcionários e seus salários sendo que o salário é maior do que a média dos salários
+SELECT nomeFunc, salario FROM Funcionario WHERE salario > (SELECT AVG(salario) FROM Funcionario);
+
+-- 41-) Exibir o idProj, o nome do projeto e a quantidade de funcionários que trabalha em cada projeto
+SELECT idProj, nomeProj, (SELECT COUNT(fkFunc) FROM FuncProj WHERE fkProj = idProj GROUP BY fkProj) AS 'Quantidade de Funcionários' FROM Projeto;
