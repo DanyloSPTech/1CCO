@@ -1,0 +1,175 @@
+<!DOCid html>
+    <html lang="pt">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sorit</title>
+    </head>
+
+    <body>
+        <h2>Escola SORIT</h2>
+        Entre com a idade do aluno: <input id="ipt_idade">
+        <button onclick="cadastrar()">Cadastrar</button> <br><br>
+
+        Intervalo de ocorrências para análise
+        <input id="ipt_ocor_de"> <input id="ipt_ocor_ate">
+        <button onclick="ocorrencias()">Analisar Ocorrências</button> <br>
+
+        Intervalo de idades para análise
+        <input id="ipt_idade_de"> <input id="ipt_idade_ate">
+        <button onclick="idades()">Analisar Idades</button> <br><br>
+
+        <div id="div_msg"></div>
+
+    </body>
+
+    </html>
+    <script>
+        var vet_idades = [];
+
+        function cadastrar() {
+
+            var idade = Number(ipt_idade.value);
+
+            var valido = false;
+
+            if (idade >= 18) {
+                if (idade >= 65) {
+                    if (idade <= 80) {
+                        alert("Associação permitida, mas com restrição");
+                        vet_idades.push(idade);
+                        valido = true;
+                    } else {
+                        alert("Idade superior a permitida");
+                    }
+                } else {
+                    valido = true;
+                    vet_idades.push(idade);
+                }
+            } else {
+                alert("Idade inferior à permitida");
+            }
+
+            if (valido) {
+                div_msg.innerHTML = '';
+                for (var i = vet_idades.length; i > 0; i--) {
+                    div_msg.innerHTML += `${vet_idades[i - 1]} <br>`;
+                }
+            }
+
+            ipt_idade.value = '';
+        }
+
+        function ocorrencias() {
+
+            if (vet_idades.length > 0) {
+                var inicio = Number(ipt_ocor_de.value);
+                var fim = Number(ipt_ocor_ate.value);
+
+                if (fim > inicio) {
+
+                    var posicVetorMen = inicio - 1;
+                    var posicVetorMai = fim - 1;
+
+                    if (vet_idades.length < fim) {
+                        alert("Não temos idades cadastradas no vetor até a idade final do intervalo informada, por favor informe um intervalo possível ou então cadastre novas idades");
+                    } else {
+                        var idadeInicial = vet_idades[posicVetorMen];
+                        var idadeFinal = vet_idades[posicVetorMai];
+                        var menorIdade = 81;
+                        var maiorIdade = 17;
+                        var qtdeIdades = 0;
+                        var somaIdades = 0;
+                        for (var i = posicVetorMen; i <= posicVetorMai; i++) {
+                            if (vet_idades[i] < menorIdade) {
+                                menorIdade = vet_idades[i];
+                            }
+                            if (vet_idades[i] > maiorIdade) {
+                                maiorIdade = vet_idades[i];
+                            }
+                            qtdeIdades++;
+                            somaIdades += vet_idades[i];
+                        }
+                        var mediaIdades = somaIdades / qtdeIdades;
+                        div_msg.innerHTML = `<b>Resumo do intervalo de ocorrências</b> <br>`;
+                        div_msg.innerHTML += `Inicial: ${idadeInicial} Final: ${idadeFinal} <br>`;
+                        div_msg.innerHTML += `Menor idade do intervalo: ${menorIdade} <br>`;
+                        div_msg.innerHTML += `Maior idade do intervalo: ${maiorIdade} <br>`;
+                        div_msg.innerHTML += `Qtde de idades cadastradas no intervalo: ${qtdeIdades} <br>`;
+                        div_msg.innerHTML += `Média das idades cadastradas no intervalo: ${mediaIdades.toFixed(1)}`;
+                    }
+
+                } else {
+                    alert("Informar o intervalo de idades corretamente");
+                }
+            } else {
+                alert("Antes de Analisar faça o cadastro das idades");
+            }
+
+        }
+        function idades() {
+            if (vet_idades.length > 0) {
+                var idadeMenor = Number(ipt_idade_de.value);
+                var idadeMaior = Number(ipt_idade_ate.value);
+
+                if (idadeMaior > idadeMenor) {
+
+                    var idadeInicial = idades.length;
+                    var idadeFinal = -1;
+                    var menorIdade = 81;
+                    var maiorIdade = 17;
+                    var qtdeIdades = 0;
+                    var somaIdades = 0;
+                    var testeIdadeInicial = false;
+                    var valorIdadeInicial = 0;
+                    var valorIdadeFinal = 0;
+                    var primeiraOcorrencia = vet_idades.length;
+                    var ultimaOcorrencia = -1;
+                    div_msg.innerHTML = '';
+                    for (var i = 0; i < vet_idades.length; i++) {
+                        if(vet_idades[i] >= idadeMenor && vet_idades[i] <= idadeMaior){
+                            if (vet_idades[i] < menorIdade) {
+                                menorIdade = vet_idades[i];
+                            }
+                            if (vet_idades[i] > maiorIdade) {
+                                maiorIdade = vet_idades[i];
+                            }
+                            if(idadeInicial < i && testeIdadeInicial == false){
+                                valorIdadeInicial = vet_idades[i];
+                                testeIdadeInicial = true;
+                            }
+                            if(i > idadeFinal){
+                                valorIdadeFinal = vet_idades[i];
+                            }
+                            if(i < primeiraOcorrencia){
+                                primeiraOcorrencia = i;
+                            }
+                            if(i > ultimaOcorrencia){
+                                ultimaOcorrencia = i;
+                            }
+                            qtdeIdades++;
+                            somaIdades += vet_idades[i];
+                            div_msg.innerHTML += `${vet_idades[i]}, `;
+                        }
+                        
+                    }
+                    var mediaIdades = somaIdades / qtdeIdades;
+                    div_msg.innerHTML += `<br><br><b>Resumo do intervalo de ocorrências</b> <br>`;
+                    div_msg.innerHTML += `Inicial: ${valorIdadeInicial} Final: ${valorIdadeFinal} <br>`;
+                    div_msg.innerHTML += `Menor idade do intervalo: ${menorIdade} <br>`;
+                    div_msg.innerHTML += `Maior idade do intervalo: ${maiorIdade} <br>`;
+                    div_msg.innerHTML += `Qtde de idades cadastradas no intervalo: ${qtdeIdades} <br>`;
+                    div_msg.innerHTML += `Média das idades cadastradas no intervalo: ${mediaIdades.toFixed(1)} <br>`;
+                    div_msg.innerHTML += `Primeira ocorrência que atendeu o intervalo: ${primeiraOcorrencia + 1} <br>`;
+                    div_msg.innerHTML += `Última ocorrência que atendeu o intervalo: ${ultimaOcorrencia + 1}`;
+
+                } else {
+                    alert("Informar o intervalo de idades corretamente");
+                }
+            } else {
+                alert("Antes de Analisar faça o cadastro das idades");
+            }
+        }
+    </script>
