@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 01 - Operador Ternário</title>
+    </head>
+    <body>
+       <h1>Autoescola</h1>
+       <p>Informe seu nome:</p>
+       <input id="inpNome">
+       <p>Informe sua idade:</p>
+       <input id="inpIdade">
+       <button onclick="avaliar()">Avaliar Aluno</button>
+       <p id="txtRetorno"></p> 
+    </body>
+</html>
+
+<script>
+
+    function avaliar(){
+
+        var nome = inpNome.value;
+        var idade = Number(inpIdade.value);
+
+        txtRetorno.innerHTML >= 18 ? txtRetorno.innerHTML = `${nome} vamos tirar a CNH?` : txtRetorno.innerHTML = `${nome} vai jogar PlayStation!`;
+
+    }
+
+</script>
